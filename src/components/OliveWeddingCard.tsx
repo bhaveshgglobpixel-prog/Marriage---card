@@ -94,7 +94,7 @@ export const OliveWeddingCard: React.FC<OliveWeddingCardProps> = ({
       date: '15 December',
       dayTime: '6:00 PM',
       description: 'Sumptuous multi-course celebratory feast with our beloved family and friends.',
-      imageUrl: '/assets/aistudio/Image__4__1_2ef47037.jpg',
+      imageUrl: '/assets/aistudio/Image__4__2_ad57dbae.jpg',
       badge: 'Royal Feast',
     },
     {
@@ -103,7 +103,7 @@ export const OliveWeddingCard: React.FC<OliveWeddingCardProps> = ({
       date: '15 December',
       dayTime: '9:00 PM',
       description: 'Joyous music, rhythmic traditional dancing, and vibrant celebrations under the stars.',
-      imageUrl: '/assets/aistudio/Image__4__1_2ef47037.jpg',
+      imageUrl: '/assets/aistudio/Image__2___1__1_0bc87b03.jpg',
       badge: 'Raas Garba',
     },
   ];
@@ -165,23 +165,7 @@ export const OliveWeddingCard: React.FC<OliveWeddingCardProps> = ({
           {couple.groom} &amp; {couple.bride}
         </h4>
 
-        {/* Date Plaque: 15 & 16 December 2026 (Matching screenshot image_5473604a.png) */}
-        <div className="mt-5 border-t border-b border-white/25 py-3 px-2 max-w-[340px] mx-auto select-none">
-          <span className="text-[11px] sm:text-xs tracking-[0.25em] uppercase text-[#fae8ec] font-primary font-bold block mb-1">
-            DECEMBER 2026
-          </span>
-          <div className="flex items-center justify-between px-3 my-0.5">
-            <span className="text-xs sm:text-sm tracking-wider text-[#fae8ec] font-primary font-bold uppercase">
-              MON &amp; TUE
-            </span>
-            <span className="font-primary text-3xl sm:text-4xl font-black text-white px-3 tracking-tight">
-              15 &amp; 16
-            </span>
-            <span className="text-xs sm:text-sm tracking-wider text-[#fae8ec] font-primary font-bold uppercase">
-              DECEMBER
-            </span>
-          </div>
-        </div>
+
 
         {/* Countdown Timer with 52 Days to go continuously counting live */}
         <div className="mt-8">
@@ -294,8 +278,8 @@ export const OliveWeddingCard: React.FC<OliveWeddingCardProps> = ({
         <h3 className="font-script text-5xl sm:text-6xl text-[#A24F61] font-normal my-2 tracking-wide">
           Thank You!
         </h3>
-        <p className="font-description text-xs text-[#6e3745]">
-          Divyesh &amp; Janki · Surat, Gujarat
+        <p className="font-primary text-xs sm:text-sm font-semibold tracking-wider text-[#6e3745] uppercase">
+          Divyesh &amp; Janki
         </p>
 
         {/* Full-Size Couple Photo in Elegant Royal Arch Shape */}
@@ -306,9 +290,9 @@ export const OliveWeddingCard: React.FC<OliveWeddingCardProps> = ({
           {/* Arched Photo Frame Container */}
           <div className="relative rounded-t-[140px] rounded-b-3xl overflow-hidden shadow-2xl border-4 border-white aspect-[3/4] bg-[#faeff2]">
             <img
-              src="/assets/aistudio/Image__2___1__8c53c064.jpg"
+              src="/assets/aistudio/Image__8__ff8d6062.jfif"
               alt="Divyesh & Janki - Forever & Always"
-              className="w-full h-full object-cover object-[center_18%] transition-transform duration-700 group-hover:scale-105"
+              className="w-full h-full object-cover object-[center_12%] transition-transform duration-700 group-hover:scale-105"
             />
 
             {/* Bottom Dark Vignette with Gold/Rose Overlay */}

@@ -126,7 +126,7 @@ export const initialWeddingData: WeddingData = {
     state: 'Gujarat',
     pincode: '395006',
     country: 'India',
-    imageUrl: '/assets/aistudio/Image__2___1__8c53c064.jpg',
+    imageUrl: '/assets/aistudio/Image__8__ff8d6062.jfif',
     googleMapsUrl: 'https://www.google.com/maps/place/Bapa+Sitaram+Palace+Party+Plot/@21.2139181,72.9186267,17z/data=!3m1!4b1!4m6!3m5!1s0x3be04569fa306223:0x11723511c5607f10!8m2!3d21.2139181!4d72.9186267!16s%2Fg%2F11ylpm5z8v?entry=ttu&g_ep=EgoyMDI2MTAwNy4wIKXMDSoASAFQAw%3D%3D',
   },
   rsvpKicker: 'KINDLY REPLY BY DECEMBER 1ST, 2026',

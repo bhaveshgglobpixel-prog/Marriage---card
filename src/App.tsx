@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { DirectVideoIntro } from './components/DirectVideoIntro';
 import { OliveWeddingCard } from './components/OliveWeddingCard';
 import { OliveRsvpModal } from './components/OliveRsvpModal';
@@ -13,12 +13,34 @@ import { initialWeddingData, sampleRsvps } from './data/weddingData';
 import { RsvpEntry } from './types/wedding';
 import { Film } from 'lucide-react';
 import { FallingPetals } from './components/FallingPetals';
-import { FloatingMusicButton } from './components/WeddingMusicPlayer';
 import { weddingAudio } from './utils/weddingAudio';
 
 export default function App() {
   // Video plays directly on load without requiring any prior click
   const [isPlayingIntro, setIsPlayingIntro] = useState(true);
+
+  // Music plays by default ("Music Dufulit Chalu he rehna chahea") without CTA button
+  useEffect(() => {
+    // Attempt playback immediately
+    weddingAudio.play();
+
+    // Browser audio policy requires a user gesture (tap, click, scroll) to unblock Web Audio
+    const handleGesture = () => {
+      weddingAudio.play();
+    };
+
+    window.addEventListener('click', handleGesture, { passive: true });
+    window.addEventListener('touchstart', handleGesture, { passive: true });
+    window.addEventListener('scroll', handleGesture, { passive: true });
+    window.addEventListener('keydown', handleGesture, { passive: true });
+
+    return () => {
+      window.removeEventListener('click', handleGesture);
+      window.removeEventListener('touchstart', handleGesture);
+      window.removeEventListener('scroll', handleGesture);
+      window.removeEventListener('keydown', handleGesture);
+    };
+  }, []);
 
   // Modals state
   const [isRsvpOpen, setIsRsvpOpen] = useState(false);
@@ -81,9 +103,6 @@ export default function App() {
 
       {/* 2. AMBIENT FALLING ROSE PETALS & GOLD SPARKLES ANIMATION ACROSS FULL PAGE */}
       <FallingPetals />
-
-      {/* 3. FLOATING WEDDING SHEHNAI & SITAR MUSIC CONTROLLER BUTTON */}
-      <FloatingMusicButton />
 
       {/* Main Wedding Card Viewport (Flush to top, edge-to-edge without gaps on sides or top) */}
       <main className="w-full flex-1 flex flex-col items-center justify-start p-0 m-0 relative z-10">

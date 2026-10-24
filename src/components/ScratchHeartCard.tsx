@@ -159,31 +159,24 @@ export const ScratchHeartCard: React.FC<ScratchHeartCardProps> = ({
     ctx.stroke();
     ctx.restore();
 
-    // 6. Realistic Embossed Text on Foil: "SCRATCH HERE"
+    // 6. Realistic Embossed Text on Foil: Royal Serif & Positioned Lower
     ctx.save();
     ctx.textAlign = 'center';
     ctx.textBaseline = 'middle';
 
     // Embossed shadow
     ctx.fillStyle = 'rgba(110, 70, 18, 0.6)';
-    ctx.font = 'bold 11px "DM Sans", system-ui, sans-serif';
-    try {
-      if ('letterSpacing' in ctx) {
-        (ctx as unknown as { letterSpacing: string }).letterSpacing = '2px';
-      }
-    } catch {
-      // ignore if unsupported
-    }
-    ctx.fillText('✨ SCRATCH WITH COIN ✨', WIDTH / 2, HEIGHT * 0.50 + 1);
+    ctx.font = 'bold 11px "Cinzel", "DM Sans", serif';
+    ctx.fillText('✦ SCRATCH TO REVEAL ✦', WIDTH / 2, HEIGHT * 0.54 + 1);
 
     // Embossed highlight
     ctx.fillStyle = 'rgba(255, 255, 255, 0.95)';
-    ctx.fillText('✨ SCRATCH WITH COIN ✨', WIDTH / 2, HEIGHT * 0.50);
+    ctx.fillText('✦ SCRATCH TO REVEAL ✦', WIDTH / 2, HEIGHT * 0.54);
 
     // Subtext on foil
-    ctx.font = '500 9.5px "Inter", system-ui, sans-serif';
-    ctx.fillStyle = 'rgba(92, 56, 12, 0.75)';
-    ctx.fillText('Touch & rub to reveal date', WIDTH / 2, HEIGHT * 0.61);
+    ctx.font = '600 9.5px "Inter", system-ui, sans-serif';
+    ctx.fillStyle = 'rgba(92, 56, 12, 0.8)';
+    ctx.fillText('Touch & rub to reveal date', WIDTH / 2, HEIGHT * 0.64);
 
     ctx.restore();
 
@@ -423,38 +416,44 @@ export const ScratchHeartCard: React.FC<ScratchHeartCardProps> = ({
       {/* ================= PHYSICAL SCRATCH-OFF CARD CONTAINER ================= */}
       <div ref={cardWrapperRef} className="relative mx-auto w-[260px] h-[240px] flex items-center justify-center select-none group">
         
-        {/* UNDERNEATH LAYER: Only the Wedding Date (15 & 16 December 2026) with refined royal typography */}
+        {/* UNDERNEATH LAYER: Only the Wedding Date (15 & 16 December 2026) positioned lower with refined royal typography */}
         <div
-          className="absolute inset-0 bg-[#fffdfa] flex flex-col items-center justify-center p-4 text-center shadow-md border-2 border-[#e8ccd3] transition-all select-none"
+          className="absolute inset-0 bg-[#fffdfa] flex flex-col items-center justify-start pt-[82px] pb-3 px-3 text-center shadow-md border-2 border-[#e8ccd3] transition-all select-none"
           style={{
             clipPath:
               'path("M130 76.8 C130 19.2 15.6 19.2 15.6 76.8 C15.6 139.2 83.2 196.8 130 235.2 C176.8 196.8 244.4 139.2 244.4 76.8 C244.4 19.2 130 19.2 130 76.8 Z")',
           }}
         >
           {/* Exquisite Royal Typography for the Auspicious Date */}
-          <div className="flex flex-col items-center justify-center z-10 py-1 max-w-[210px] mx-auto">
+          <div className="flex flex-col items-center justify-center z-10 max-w-[200px] mx-auto">
+            {/* Shubh Vivah with golden decorative accents */}
             <div className="flex items-center justify-center gap-1.5 mb-1">
-              <span className="w-3 h-[1px] bg-[#c48e35]" />
-              <span className="text-[10px] sm:text-[11px] tracking-[0.28em] font-cinzel uppercase font-bold text-[#b57d2a]">
+              <span className="w-3 h-[1px] bg-gradient-to-r from-transparent to-[#c48e35]" />
+              <span className="text-[10px] tracking-[0.28em] font-cinzel uppercase font-bold text-[#b57d2a]">
                 SHUBH VIVAH
               </span>
-              <span className="w-3 h-[1px] bg-[#c48e35]" />
+              <span className="w-3 h-[1px] bg-gradient-to-l from-transparent to-[#c48e35]" />
             </div>
 
-            <span className="font-cinzel text-4xl sm:text-[44px] font-bold text-[#A24F61] leading-none tracking-tight block drop-shadow-[0_1px_1px_rgba(162,79,97,0.2)]">
-              15 &amp; 16
-            </span>
+            {/* Date Numbers with Elegant Italic Ampersand */}
+            <div className="flex items-baseline justify-center font-cinzel font-bold text-[#A24F61] leading-none drop-shadow-[0_1px_1px_rgba(162,79,97,0.18)] my-0.5">
+              <span className="text-[38px] sm:text-[42px] tracking-tight">15</span>
+              <span className="font-serif italic font-normal text-2xl sm:text-3xl text-[#c48e35] mx-1.5 opacity-90">&amp;</span>
+              <span className="text-[38px] sm:text-[42px] tracking-tight">16</span>
+            </div>
 
-            <span className="font-cinzel text-base sm:text-lg font-bold uppercase tracking-[0.34em] text-[#2d1219] mt-2 block">
+            {/* Month with Regal Letter Spacing */}
+            <span className="font-cinzel text-xs sm:text-sm font-bold uppercase tracking-[0.38em] text-[#2d1219] mt-1 block">
               DECEMBER
             </span>
 
+            {/* Year with Gold Hairline Flares */}
             <div className="flex items-center justify-center gap-2 mt-1">
-              <span className="w-2.5 h-[1px] bg-[#c48e35]/60" />
-              <span className="font-cinzel text-sm sm:text-base font-bold text-[#b57d2a] tracking-[0.3em]">
+              <span className="w-3.5 h-[1px] bg-[#c48e35]/70" />
+              <span className="font-cinzel text-xs sm:text-[13px] font-bold text-[#b57d2a] tracking-[0.28em]">
                 2026
               </span>
-              <span className="w-2.5 h-[1px] bg-[#c48e35]/60" />
+              <span className="w-3.5 h-[1px] bg-[#c48e35]/70" />
             </div>
           </div>
         </div>

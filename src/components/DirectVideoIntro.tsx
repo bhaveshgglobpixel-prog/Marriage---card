@@ -53,7 +53,7 @@ export const DirectVideoIntro: React.FC<DirectVideoIntroProps> = ({ onComplete }
       <div className="relative w-full max-w-[420px] aspect-[9/19.5] sm:max-h-[92vh] rounded-3xl overflow-hidden shadow-[0_25px_60px_rgba(0,0,0,0.6)] border border-[#8a223e]/40 bg-black">
         <video
           ref={videoRef}
-          src="/assets/aistudio/Dolce_Vita___Mobile_envelope_opening__1__f6fe482d.mp4"
+          src="/assets/aistudio/Dolce_Vita_Opening_Clean.mp4"
           autoPlay
           muted
           playsInline

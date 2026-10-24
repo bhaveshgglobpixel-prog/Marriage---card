@@ -67,7 +67,7 @@ export const EnvelopeOpening: React.FC<EnvelopeOpeningProps> = ({
         {/* Actual Dolce Vita Opening Video */}
         <video
           ref={videoRef}
-          src="/assets/aistudio/Dolce_Vita___Mobile_envelope_opening_1cb1fab9.mp4"
+          src="/assets/aistudio/Dolce_Vita_Opening_Clean.mp4"
           playsInline
           muted
           preload="auto"
