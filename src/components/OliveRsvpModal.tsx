@@ -99,7 +99,7 @@ export const OliveRsvpModal: React.FC<OliveRsvpModalProps> = ({
               <button
                 type="button"
                 onClick={onOpenGuestbook}
-                className="py-2 px-4 rounded-full bg-[#A24F61] text-white text-xs font-primary font-bold shadow-xs hover:bg-[#8e3f51] cursor-pointer"
+                className="py-2 px-4 rounded-full bg-[#A24F61] text-white text-xs font-primary font-bold shadow-xs hover:bg-[#873a4b] cursor-pointer"
               >
                 View Guest Wishes
               </button>
@@ -119,7 +119,7 @@ export const OliveRsvpModal: React.FC<OliveRsvpModalProps> = ({
                 <Mail className="w-6 h-6 stroke-[1.5]" />
               </div>
               <h3 className="font-script text-3xl text-[#A24F61]">RSVP Confirmation</h3>
-              <p className="font-description text-[11px] text-[#8c4959] mt-0.5">
+              <p className="font-description text-[11px] text-[#7d3d4b] mt-0.5">
                 Wedding of Divyesh &amp; Janki · 15 &amp; 16 December 2026
               </p>
             </div>
@@ -211,7 +211,7 @@ export const OliveRsvpModal: React.FC<OliveRsvpModalProps> = ({
             <button
               type="submit"
               disabled={isSubmitting}
-              className="w-full py-3 rounded-xl bg-[#A24F61] hover:bg-[#8e3f51] text-white font-primary font-bold text-xs shadow-md transition-all flex items-center justify-center gap-1.5 cursor-pointer disabled:opacity-75"
+              className="w-full py-3 rounded-xl bg-[#A24F61] hover:bg-[#873a4b] text-white font-primary font-bold text-xs shadow-md transition-all flex items-center justify-center gap-1.5 cursor-pointer disabled:opacity-75"
             >
               {isSubmitting ? (
                 <span>Sending Confirmation...</span>

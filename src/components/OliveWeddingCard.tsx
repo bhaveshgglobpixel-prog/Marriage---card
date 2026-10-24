@@ -85,17 +85,8 @@ export const OliveWeddingCard: React.FC<OliveWeddingCardProps> = ({
       date: '15 December',
       dayTime: '2:00 PM',
       description: 'Sacred marriage rituals, exchange of vows, and auspicious blessings as we tie the knot.',
-      imageUrl: '/assets/aistudio/Image__4__1_2ef47037.jpg',
-      badge: 'Mandap Ceremony',
-    },
-    {
-      id: 'dinner-15',
-      title: 'Dinner',
-      date: '15 December',
-      dayTime: '6:00 PM',
-      description: 'Sumptuous multi-course celebratory feast with our beloved family and friends.',
       imageUrl: '/assets/aistudio/Image__4__2_ad57dbae.jpg',
-      badge: 'Royal Feast',
+      badge: 'Mandap Ceremony',
     },
     {
       id: 'garba',
@@ -103,8 +94,17 @@ export const OliveWeddingCard: React.FC<OliveWeddingCardProps> = ({
       date: '15 December',
       dayTime: '9:00 PM',
       description: 'Joyous music, rhythmic traditional dancing, and vibrant celebrations under the stars.',
-      imageUrl: '/assets/aistudio/Image__2___1__1_0bc87b03.jpg',
+      imageUrl: '/assets/aistudio/Image__8__1_49dbf85c.jpg',
       badge: 'Raas Garba',
+    },
+    {
+      id: 'wedding',
+      title: 'Wedding',
+      date: '15 December',
+      dayTime: '10:00 AM',
+      description: 'Sacred pheras around the holy agni, auspicious Hast Melap, and eternal vows of togetherness.',
+      imageUrl: '/assets/aistudio/Image__4__1_81978a19.jpg',
+      badge: 'Shubh Vivah',
     },
   ];
 
@@ -125,20 +125,20 @@ export const OliveWeddingCard: React.FC<OliveWeddingCardProps> = ({
               Together With Their Families
             </span>
 
-            {/* Main Heading Couple Names: Divyesh & Janki in cursive (karshu) font */}
-            <h1 className="font-script text-5xl sm:text-6xl text-[#A24F61] tracking-wide font-normal drop-shadow-[0_1px_2px_rgba(255,255,255,0.9)] leading-tight my-1">
+            {/* Main Heading Couple Names: Divyesh & Janki in simple, readable cursive (karshu) font */}
+            <h1 className="font-script text-6xl sm:text-7xl text-[#A24F61] tracking-wide font-normal drop-shadow-[0_1px_2px_rgba(255,255,255,0.9)] leading-tight my-1">
               {couple.groom}
             </h1>
 
             <div className="my-0.5">
-              <span className="font-script text-3xl sm:text-4xl text-[#c28236] italic drop-shadow-xs">&amp;</span>
+              <span className="font-script text-4xl sm:text-5xl text-[#c28236] italic drop-shadow-xs">&amp;</span>
             </div>
 
-            <h1 className="font-script text-5xl sm:text-6xl text-[#A24F61] tracking-wide font-normal drop-shadow-[0_1px_2px_rgba(255,255,255,0.9)] leading-tight my-1">
+            <h1 className="font-script text-6xl sm:text-7xl text-[#A24F61] tracking-wide font-normal drop-shadow-[0_1px_2px_rgba(255,255,255,0.9)] leading-tight my-1">
               {couple.bride}
             </h1>
 
-            <p className="font-description text-xs sm:text-sm text-[#5c2432] max-w-[270px] mx-auto mt-2 leading-relaxed">
+            <p className="font-description text-xs sm:text-sm text-[#6e3745] max-w-[270px] mx-auto mt-2 leading-relaxed">
               Cordially invite you to celebrate their wedding union with love &amp; blessings
             </p>
           </div>
@@ -154,33 +154,31 @@ export const OliveWeddingCard: React.FC<OliveWeddingCardProps> = ({
         </div>
       </div>
 
-      {/* ================= SECTION 2: BLESSINGS BANNER & COUNTDOWN (PRIMARY #A24F61) ================= */}
-      <div className="bg-[#A24F61] text-white py-8 px-6 text-center">
+      {/* ================= SECTION 2: CELEBRATION BANNER & COUNTDOWN (PRIMARY ROYAL ROSE PATTI) ================= */}
+      <div className="bg-[#A24F61] text-white py-8 px-6 text-center shadow-inner border-y border-[#8e3f51]">
         <p className="font-description text-xs text-[#fae8ec] max-w-[310px] mx-auto leading-relaxed">
-          With the divine blessings of Almighty and our beloved parents &amp; elders, we joyfully invite you to the auspicious wedding ceremony of
+          With the divine blessings of Almighty and our beloved parents &amp; elders, we joyfully invite you to the auspicious wedding celebration of
         </p>
 
-        {/* Main Heading Couple Names in cursive (karshu) */}
-        <h4 className="font-script text-4xl sm:text-5xl text-white my-3 font-normal tracking-wide drop-shadow-sm">
+        {/* Main Heading Couple Names in simple, readable cursive (karshu) */}
+        <h4 className="font-script text-5xl sm:text-6xl text-white my-3 font-semibold tracking-wide drop-shadow-sm">
           {couple.groom} &amp; {couple.bride}
         </h4>
 
-
-
         {/* Countdown Timer with 52 Days to go continuously counting live */}
         <div className="mt-8">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/15 text-[#fae8ec] text-[11px] font-primary font-bold tracking-[0.2em] uppercase mb-3 border border-white/20">
-            <span className="w-2 h-2 rounded-full bg-[#fcd4dc] animate-ping" />
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white/15 text-[#fdf0f3] text-[11px] font-primary font-bold tracking-[0.2em] uppercase mb-3 border border-white/20 shadow-xs">
+            <span className="w-2 h-2 rounded-full bg-[#f8b4c4] animate-ping" />
             <span>{countdown.days} Days To Go · Counting Down</span>
           </div>
 
           <div className="font-primary text-3xl sm:text-4xl font-bold tracking-wider text-white tabular-nums flex items-center justify-center gap-2">
             <span>{String(countdown.days).padStart(2, '0')}</span>
-            <span className="text-[#fcd4dc]">:</span>
+            <span className="text-[#f8b4c4]">:</span>
             <span>{String(countdown.hours).padStart(2, '0')}</span>
-            <span className="text-[#fcd4dc]">:</span>
+            <span className="text-[#f8b4c4]">:</span>
             <span>{String(countdown.minutes).padStart(2, '0')}</span>
-            <span className="text-[#fcd4dc]">:</span>
+            <span className="text-[#f8b4c4]">:</span>
             <span>{String(countdown.seconds).padStart(2, '0')}</span>
           </div>
 
@@ -204,13 +202,13 @@ export const OliveWeddingCard: React.FC<OliveWeddingCardProps> = ({
 
       {/* ================= SECTION 4: MARRIAGE EVENTS (TOP DETAILS, VERTICAL 2D IMAGE UNDERNEATH) ================= */}
       <div className="py-10 px-4 sm:px-6 bg-[#f8f2ec] text-center border-t border-[#e8dcd0]">
-        <span className="text-[10px] tracking-[0.25em] font-primary uppercase text-[#A24F61] font-bold block">
-          AUSPICIOUS CEREMONIES
-        </span>
+        <div className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-[#A24F61] text-[#faeff2] text-[10px] tracking-[0.25em] font-primary uppercase font-bold mb-2 shadow-xs">
+          THE CELEBRATIONS
+        </div>
         <h3 className="font-script text-5xl sm:text-6xl text-[#A24F61] font-normal my-2 tracking-wide">
           Marriage Events
         </h3>
-        <p className="font-description text-xs text-[#6e3745] max-w-[290px] mx-auto mb-7 leading-relaxed">
+        <p className="font-description text-xs text-[#7d3d4b] max-w-[290px] mx-auto mb-7 leading-relaxed">
           Join us in celebrated traditions, vibrant colors, and sacred rituals
         </p>
 
@@ -219,9 +217,9 @@ export const OliveWeddingCard: React.FC<OliveWeddingCardProps> = ({
           {marriageEvents.map((evt) => (
             <div
               key={evt.id}
-              className="bg-white rounded-3xl p-5 sm:p-6 shadow-[0_6px_25px_rgba(162,79,97,0.07)] border border-[#ebdcd2] transition-all hover:border-[#d9bfb0]"
+              className="bg-white rounded-3xl p-5 sm:p-6 shadow-[0_6px_25px_rgba(162,79,97,0.08)] border border-[#eed5db] transition-all hover:border-[#dfb9c3]"
             >
-              {/* TOP: Script font ceremony title */}
+              {/* TOP: Script font ceremony title - Simple, clean & readable */}
               <h4 className="font-script text-4xl sm:text-5xl text-[#A24F61] font-normal leading-tight tracking-wide">
                 {evt.title}
               </h4>
@@ -232,7 +230,7 @@ export const OliveWeddingCard: React.FC<OliveWeddingCardProps> = ({
                   {evt.date}
                 </span>
 
-                <div className="inline-flex items-center gap-1.5 px-3 py-0.5 rounded-full bg-[#faeff2] text-[#A24F61] text-[11px] font-primary font-bold border border-[#ebd0d6]">
+                <div className="inline-flex items-center gap-1.5 px-3 py-0.5 rounded-full bg-[#faeff2] text-[#A24F61] text-[11px] font-primary font-bold border border-[#f0d8de]">
                   <Clock className="w-3 h-3 stroke-[2]" />
                   <span>{evt.dayTime}</span>
                 </div>
@@ -244,7 +242,7 @@ export const OliveWeddingCard: React.FC<OliveWeddingCardProps> = ({
               </p>
 
               {/* UNDERNEATH: Royal Couple Mandap Illustration */}
-              <div className="mt-4 rounded-2xl overflow-hidden h-[320px] sm:h-[350px] relative shadow-lg border border-[#ebd0d6] bg-[#fbf5f2] group max-w-[360px] mx-auto">
+              <div className="mt-4 rounded-2xl overflow-hidden h-[320px] sm:h-[350px] relative shadow-lg border border-[#eed5db] bg-[#fbf5f2] group max-w-[360px] mx-auto">
                 <img
                   src={evt.imageUrl}
                   alt={evt.title}
@@ -262,7 +260,7 @@ export const OliveWeddingCard: React.FC<OliveWeddingCardProps> = ({
         </div>
       </div>
 
-      {/* ================= SECTION 5: VENUE & GOOGLE MAPS (#A24F61 PRIMARY) ================= */}
+      {/* ================= SECTION 5: VENUE & GOOGLE MAPS ================= */}
       <IndianVenueMap
         venueName="Bapa Sitaram Palace Party Plot"
         address="Bapa Sitaram Chowk, New Varachha"
@@ -278,7 +276,7 @@ export const OliveWeddingCard: React.FC<OliveWeddingCardProps> = ({
         <h3 className="font-script text-5xl sm:text-6xl text-[#A24F61] font-normal my-2 tracking-wide">
           Thank You!
         </h3>
-        <p className="font-primary text-xs sm:text-sm font-semibold tracking-wider text-[#6e3745] uppercase">
+        <p className="font-primary text-xs sm:text-sm font-semibold tracking-wider text-[#A24F61] uppercase">
           Divyesh &amp; Janki
         </p>
 

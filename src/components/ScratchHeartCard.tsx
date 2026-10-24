@@ -397,19 +397,19 @@ export const ScratchHeartCard: React.FC<ScratchHeartCardProps> = ({
         AUSPICIOUS DATE REVEAL
       </span>
 
-      {/* Main Cursive Title */}
+      {/* Main Cursive Title - Simple, clean, readable Karshu font */}
       <h3 className="font-script text-5xl sm:text-6xl text-[#A24F61] font-normal my-1 tracking-wide">
         Scratch to Reveal
       </h3>
 
       {/* Heart divider */}
       <div className="flex items-center justify-center gap-2.5 my-2">
-        <span className="w-12 h-[1px] bg-[#ebd0d6]" />
+        <span className="w-12 h-[1px] bg-[#eed5db]" />
         <Heart className="w-3.5 h-3.5 fill-[#A24F61] text-[#A24F61]" />
-        <span className="w-12 h-[1px] bg-[#ebd0d6]" />
+        <span className="w-12 h-[1px] bg-[#eed5db]" />
       </div>
 
-      <p className="font-description text-xs text-[#6e3745] mb-5">
+      <p className="font-description text-xs text-[#7d3d4b] mb-5">
         Rub and scratch the royal heart with your finger to uncover the wedding date
       </p>
 
@@ -539,7 +539,7 @@ export const ScratchHeartCard: React.FC<ScratchHeartCardProps> = ({
           <button
             type="button"
             onClick={triggerCelebration}
-            className="text-xs text-[#A24F61] hover:text-[#782c40] underline underline-offset-4 font-description transition-colors cursor-pointer font-medium"
+            className="text-xs text-[#A24F61] hover:text-[#803546] underline underline-offset-4 font-description transition-colors cursor-pointer font-medium"
           >
             Reveal date directly
           </button>

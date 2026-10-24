@@ -34,7 +34,7 @@ export const GuestbookModal: React.FC<GuestbookModalProps> = ({
           <button
             type="button"
             onClick={onClose}
-            className="w-9 h-9 rounded-full bg-[#faeff2] hover:bg-[#f6dfe4] text-[#A24F61] flex items-center justify-center transition-colors cursor-pointer"
+            className="w-9 h-9 rounded-full bg-[#faeff2] hover:bg-[#f3dbe1] text-[#A24F61] flex items-center justify-center transition-colors cursor-pointer"
           >
             <X className="w-5 h-5" />
           </button>

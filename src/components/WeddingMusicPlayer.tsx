@@ -44,19 +44,19 @@ export const WeddingMusicPlayer: React.FC = () => {
         Play Our Wedding Song
       </h3>
 
-      <p className="font-description text-xs text-[#6e3745] max-w-[280px] mx-auto mb-5 leading-relaxed">
+      <p className="font-description text-xs text-[#7d3d4b] max-w-[280px] mx-auto mb-5 leading-relaxed">
         Auspicious Shehnai &amp; Sitar Harmony · Shubh Vivah
       </p>
 
       {/* Main Music Player Card (Inspired by user's screenshot image_42db3aa2.png) */}
-      <div className="max-w-[340px] mx-auto bg-white/90 backdrop-blur-xs rounded-2xl p-5 border border-[#e8ccd3] shadow-sm">
+      <div className="max-w-[340px] mx-auto bg-white/90 backdrop-blur-xs rounded-2xl p-5 border border-[#ebd0d6] shadow-sm">
         {/* Animated Sound Wave Equalizer Bars */}
         <div className="flex items-center justify-center gap-1.5 h-8 mb-4">
           {[12, 24, 18, 30, 16, 26, 20, 28, 14, 22].map((h, i) => (
             <span
               key={i}
               className={`w-1 rounded-full transition-all duration-300 ${
-                isPlaying ? 'bg-[#A24F61] animate-pulse' : 'bg-[#e8ccd3]'
+                isPlaying ? 'bg-[#A24F61] animate-pulse' : 'bg-[#ebd0d6]'
               }`}
               style={{
                 height: isPlaying ? `${Math.max(8, (h * (progress % 10 + 5)) / 10)}px` : '6px',

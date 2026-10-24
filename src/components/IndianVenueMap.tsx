@@ -47,9 +47,9 @@ export const IndianVenueMap: React.FC<IndianVenueMapProps> = ({
   };
 
   return (
-    <div className="bg-[#A24F61] text-white py-9 px-6 text-center">
+    <div className="bg-[#A24F61] text-white py-9 px-6 text-center shadow-inner border-t border-[#70122b]/30">
       <div className="w-10 h-10 mx-auto text-white flex items-center justify-center mb-1">
-        <MapPin className="w-8 h-8 stroke-[1.5]" />
+        <MapPin className="w-8 h-8 stroke-[1.5] text-[#fce4ea]" />
       </div>
 
       <h3 className="font-script text-5xl sm:text-6xl text-white font-normal tracking-wide my-1">
@@ -61,7 +61,7 @@ export const IndianVenueMap: React.FC<IndianVenueMapProps> = ({
       </p>
 
       {/* Embedded Map Container */}
-      <div className="mt-5 rounded-2xl overflow-hidden shadow-lg border-2 border-[#bd677b] bg-[#2d1219] relative group">
+      <div className="mt-5 rounded-2xl overflow-hidden shadow-lg border-2 border-[#c4687d] bg-[#4a1824] relative group">
         <iframe
           title="Wedding Venue Google Map"
           src="https://maps.google.com/maps?q=Bapa+Sitaram+Palace+Party+Plot+Surat@21.2139181,72.9186267&hl=en&z=17&output=embed"
@@ -74,7 +74,7 @@ export const IndianVenueMap: React.FC<IndianVenueMapProps> = ({
         />
 
         {/* Floating location tag */}
-        <div className="absolute bottom-2.5 left-2.5 right-2.5 bg-[#2d1219]/90 backdrop-blur-md px-3.5 py-2 rounded-xl text-left border border-white/20 flex items-center justify-between">
+        <div className="absolute bottom-2.5 left-2.5 right-2.5 bg-[#3a131c]/90 backdrop-blur-md px-3.5 py-2 rounded-xl text-left border border-white/20 flex items-center justify-between">
           <div>
             <h5 className="font-primary text-xs font-bold text-white truncate max-w-[200px]">
               {venueName}
@@ -87,7 +87,7 @@ export const IndianVenueMap: React.FC<IndianVenueMapProps> = ({
             href={mapsUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="p-1.5 rounded-lg bg-[#A24F61] text-white hover:bg-[#8e3f51] transition-colors shrink-0"
+            className="p-1.5 rounded-lg bg-[#A24F61] text-white hover:bg-[#853444] transition-colors shrink-0"
             title="Open in Google Maps"
           >
             <ExternalLink className="w-3.5 h-3.5" />
@@ -101,7 +101,7 @@ export const IndianVenueMap: React.FC<IndianVenueMapProps> = ({
           href={mapsUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="w-full py-2.5 px-6 rounded-full bg-white hover:bg-[#fff5f7] text-[#A24F61] font-primary font-bold text-xs shadow-md transition-all flex items-center justify-center gap-2 active:scale-95"
+          className="w-full py-2.5 px-6 rounded-full bg-white hover:bg-[#faeff2] text-[#A24F61] font-primary font-bold text-xs shadow-md transition-all flex items-center justify-center gap-2 active:scale-95"
         >
           <Navigation className="w-4 h-4 fill-[#A24F61]" />
           <span>Get Directions</span>
