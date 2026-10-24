@@ -1,0 +1,134 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 800" width="100%" height="100%">
+  <defs>
+    <linearGradient id="garbaBg" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#1E1035"/>
+      <stop offset="40%" stop-color="#2E1045"/>
+      <stop offset="80%" stop-color="#4C1D54"/>
+      <stop offset="100%" stop-color="#701A4B"/>
+    </linearGradient>
+    <linearGradient id="goldG" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FDE68A"/>
+      <stop offset="50%" stop-color="#F59E0B"/>
+      <stop offset="100%" stop-color="#B45309"/>
+    </linearGradient>
+    <radialGradient id="stageLight" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#FDF2E9" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#FDF2E9" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="600" height="800" fill="url(#garbaBg)"/>
+  <circle cx="300" cy="450" r="280" fill="url(#stageLight)"/>
+
+  <!-- Hanging Decorative Festoon Lanterns & Lights -->
+  <path d="M 0 100 Q 150 160 300 100 Q 450 160 600 100" fill="none" stroke="#FDE68A" stroke-width="2" stroke-dasharray="4,6"/>
+  <g fill="#F59E0B">
+    <circle cx="80" cy="120" r="5"/>
+    <circle cx="150" cy="132" r="6"/>
+    <circle cx="230" cy="122" r="5"/>
+    <circle cx="370" cy="122" r="5"/>
+    <circle cx="450" cy="132" r="6"/>
+    <circle cx="520" cy="120" r="5"/>
+  </g>
+
+  <!-- Festive Paper Lanterns (Kandil) -->
+  <g transform="translate(100, 110)">
+    <polygon points="0,0 20,-15 40,0 20,35" fill="#EF4444"/>
+    <polygon points="10,0 20,-10 30,0 20,25" fill="#FBBF24"/>
+    <line x1="12" y1="35" x2="12" y2="60" stroke="#FBBF24" stroke-width="2"/>
+    <line x1="20" y1="35" x2="20" y2="65" stroke="#EF4444" stroke-width="2"/>
+    <line x1="28" y1="35" x2="28" y2="60" stroke="#FBBF24" stroke-width="2"/>
+  </g>
+  <g transform="translate(460, 110)">
+    <polygon points="0,0 20,-15 40,0 20,35" fill="#10B981"/>
+    <polygon points="10,0 20,-10 30,0 20,25" fill="#FBBF24"/>
+    <line x1="12" y1="35" x2="12" y2="60" stroke="#FBBF24" stroke-width="2"/>
+    <line x1="20" y1="35" x2="20" y2="65" stroke="#10B981" stroke-width="2"/>
+    <line x1="28" y1="35" x2="28" y2="60" stroke="#FBBF24" stroke-width="2"/>
+  </g>
+
+  <!-- Dancing Dandiya Sticks Crossed in Center -->
+  <g transform="translate(300, 310)">
+    <!-- Dandiya 1 (Pink / Gold) -->
+    <rect x="-140" y="-8" width="160" height="16" rx="8" transform="rotate(-35)" fill="#EC4899" stroke="#FDE68A" stroke-width="3"/>
+    <!-- Dandiya 2 (Cyan / Gold) -->
+    <rect x="-20" y="-8" width="160" height="16" rx="8" transform="rotate(35)" fill="#06B6D4" stroke="#FDE68A" stroke-width="3"/>
+    <!-- Sparkle at contact -->
+    <circle cx="0" cy="0" r="14" fill="#FEF08A" opacity="0.8"/>
+    <polygon points="0,-25 6,-8 25,0 6,8 0,25 -6,8 -25,0 -6,-8" fill="#FFFFFF"/>
+  </g>
+
+  <!-- 2D Gujarati Boy (Left) in Royal Kediyu & Dhoti -->
+  <g id="garbaBoy">
+    <!-- Kediyu Flared Frock Kurta -->
+    <path d="M 170 410 C 170 380 200 370 220 370 C 240 370 260 380 260 410 L 285 540 C 285 560 250 575 220 575 C 185 575 150 560 150 540 Z" fill="#F59E0B"/>
+    <!-- Mirror work embroidery border -->
+    <path d="M 152 538 C 185 568 250 568 283 538" stroke="#FFFFFF" stroke-width="6" stroke-dasharray="8,6" fill="none"/>
+    <path d="M 152 525 C 185 550 250 550 283 525" stroke="#DC2626" stroke-width="4" fill="none"/>
+
+    <!-- Dhoti (Red / Maroon) -->
+    <path d="M 180 570 L 195 680 L 215 680 L 210 575 Z" fill="#991B1B"/>
+    <path d="M 225 575 L 225 680 L 245 680 L 255 570 Z" fill="#991B1B"/>
+
+    <!-- Boy Arm Holding Dandiya -->
+    <path d="M 240 405 Q 275 365 290 330 L 278 322 Q 262 360 230 395 Z" fill="#F59E0B"/>
+    <circle cx="286" cy="326" r="7" fill="#F9C69D"/>
+
+    <!-- Boy Face & Pagdi Turban -->
+    <ellipse cx="220" cy="335" rx="19" ry="22" fill="#F9C69D"/>
+    <!-- Gujarati Colorful Turban with Tassels -->
+    <path d="M 198 328 C 198 290 220 282 242 290 C 248 310 245 328 238 335 Z" fill="#DC2626"/>
+    <path d="M 200 322 Q 220 312 240 320" stroke="#FDE68A" stroke-width="3" fill="none"/>
+    <ellipse cx="228" cy="334" rx="1.8" ry="2" fill="#3E2723"/>
+    <path d="M 224 345 Q 230 350 236 345" stroke="#C53030" stroke-width="1.8" fill="none"/>
+  </g>
+
+  <!-- 2D Gujarati Girl (Right) in Traditional Chaniya Choli -->
+  <g id="garbaGirl">
+    <!-- Flared Colorful Chaniya (Skirt) with Gota Patti -->
+    <path d="M 350 440 C 350 440 370 435 390 435 C 410 435 430 440 430 440 L 465 670 C 465 690 420 705 390 705 C 360 705 315 690 315 670 Z" fill="#EC4899"/>
+    <!-- Broad Border with Mirrors -->
+    <path d="M 318 665 C 355 695 425 695 462 665" stroke="url(#goldG)" stroke-width="10" fill="none"/>
+    <path d="M 322 645 C 355 675 425 675 458 645" stroke="#FFFFFF" stroke-width="5" stroke-dasharray="8,6" fill="none"/>
+    <path d="M 330 625 C 360 650 420 650 450 625" stroke="#10B981" stroke-width="4" fill="none"/>
+
+    <!-- Choli (Blouse) -->
+    <path d="M 360 380 C 360 380 375 375 390 375 C 405 375 415 380 415 380 L 418 435 C 405 438 375 438 360 435 Z" fill="#10B981"/>
+    <!-- Dupatta Swirling -->
+    <path d="M 365 390 Q 425 350 445 420 Q 460 480 450 560" stroke="#F59E0B" stroke-width="7" fill="none" opacity="0.9"/>
+
+    <!-- Girl Arm Holding Dandiya Raised in Joy -->
+    <path d="M 365 395 Q 335 360 312 328 L 322 320 Q 345 355 375 390 Z" fill="#10B981"/>
+    <circle cx="316" cy="324" r="6.5" fill="#F8C096"/>
+
+    <!-- Girl Face & Hair Bun with Gajra -->
+    <ellipse cx="390" cy="342" rx="18" ry="21" fill="#F8C096"/>
+    <!-- Hair Bun with Jasmine Flowers -->
+    <circle cx="410" cy="336" r="10" fill="#1C1917"/>
+    <circle cx="410" cy="336" r="12" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-dasharray="3,3"/>
+    <!-- Features -->
+    <ellipse cx="382" cy="340" rx="1.8" ry="2" fill="#3E2723"/>
+    <circle cx="388" cy="333" r="1.5" fill="#DC2626"/>
+    <path d="M 384 350 Q 389 355 395 350" stroke="#BE123C" stroke-width="2" fill="none"/>
+    <!-- Jhumka Earring -->
+    <polygon points="372,345 368,353 376,353" fill="#FDE68A"/>
+  </g>
+
+  <!-- Swirling Sparkles & Rhythmic Musical Waves -->
+  <g fill="#FDE047" opacity="0.8">
+    <circle cx="210" cy="220" r="3"/>
+    <circle cx="390" cy="210" r="4"/>
+    <circle cx="160" cy="620" r="3.5"/>
+    <circle cx="480" cy="580" r="3.5"/>
+    <circle cx="270" cy="640" r="2.5"/>
+    <circle cx="440" cy="280" r="3"/>
+  </g>
+
+  <!-- Bottom Badge -->
+  <g transform="translate(170, 735)">
+    <rect x="0" y="0" width="260" height="38" rx="19" fill="#2E1045" stroke="#F59E0B" stroke-width="1.5"/>
+    <text x="130" y="24" text-anchor="middle" font-family="serif, sans-serif" font-size="13" font-weight="bold" fill="#FEF3C7" letter-spacing="2">
+      RAAS GARBA NIGHT
+    </text>
+  </g>
+</svg>

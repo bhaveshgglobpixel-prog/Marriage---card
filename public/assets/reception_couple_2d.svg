@@ -1,0 +1,92 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 800" width="100%" height="100%">
+  <defs>
+    <linearGradient id="recBg" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#0F172A"/>
+      <stop offset="50%" stop-color="#1E293B"/>
+      <stop offset="100%" stop-color="#334155"/>
+    </linearGradient>
+    <linearGradient id="goldShine" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FEF08A"/>
+      <stop offset="50%" stop-color="#F59E0B"/>
+      <stop offset="100%" stop-color="#B45309"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="600" height="800" fill="url(#recBg)"/>
+
+  <!-- Fairy Lights Backdrop -->
+  <g fill="#FEF08A" opacity="0.65">
+    <circle cx="80" cy="100" r="3"/>
+    <circle cx="160" cy="80" r="4"/>
+    <circle cx="250" cy="120" r="3"/>
+    <circle cx="340" cy="90" r="4"/>
+    <circle cx="430" cy="110" r="3.5"/>
+    <circle cx="510" cy="75" r="4"/>
+
+    <circle cx="100" cy="200" r="3.5"/>
+    <circle cx="200" cy="180" r="4.5"/>
+    <circle cx="300" cy="220" r="3"/>
+    <circle cx="400" cy="190" r="4"/>
+    <circle cx="500" cy="210" r="3.5"/>
+  </g>
+
+  <!-- Arch Backdrop with Floral Garland -->
+  <path d="M 120 750 L 120 320 C 120 180 200 120 300 120 C 400 120 480 180 480 320 L 480 750" fill="none" stroke="url(#goldShine)" stroke-width="4"/>
+  <path d="M 115 320 C 115 170 195 110 300 110 C 405 110 485 170 485 320" fill="none" stroke="#FDE68A" stroke-width="10" stroke-dasharray="14,14" stroke-linecap="round"/>
+
+  <!-- 2D Groom in Tuxedo / Bandhgala (Divyesh) -->
+  <g id="recGroom">
+    <!-- Body -->
+    <path d="M 180 430 C 180 380 210 370 235 370 C 260 370 280 380 280 430 L 285 640 L 180 640 Z" fill="#020617"/>
+    <!-- Satin Lapel -->
+    <path d="M 235 370 L 220 490 L 235 490 L 245 370 Z" fill="#1E293B"/>
+    <path d="M 235 370 L 250 490 L 235 490 L 225 370 Z" fill="#1E293B"/>
+    <!-- Crisp White Shirt & Bowtie -->
+    <polygon points="230,375 240,375 235,430" fill="#FFFFFF"/>
+    <!-- Red Bowtie -->
+    <polygon points="228,382 242,382 235,390" fill="#DC2626"/>
+    <polygon points="228,398 242,398 235,390" fill="#DC2626"/>
+
+    <!-- Trousers -->
+    <rect x="190" y="635" width="38" height="85" fill="#020617"/>
+    <rect x="235" y="635" width="38" height="85" fill="#020617"/>
+
+    <!-- Head & Smile -->
+    <ellipse cx="235" cy="335" rx="20" ry="24" fill="#F9C69D"/>
+    <!-- Hair -->
+    <path d="M 215 330 C 215 305 235 300 255 315 C 255 330 250 335 245 335 Z" fill="#1C1917"/>
+    <ellipse cx="230" cy="334" rx="2" ry="2" fill="#3E2723"/>
+    <ellipse cx="242" cy="334" rx="2" ry="2" fill="#3E2723"/>
+    <path d="M 232 344 Q 236 349 242 344" stroke="#DC2626" stroke-width="2" fill="none"/>
+  </g>
+
+  <!-- 2D Bride in Gown / Royal Pastel Evening Lehenga (Janki) -->
+  <g id="recBride">
+    <!-- Evening Ballgown Skirt -->
+    <path d="M 330 450 C 330 450 345 440 370 440 C 395 440 410 450 410 450 L 450 710 C 450 730 410 740 370 740 C 330 740 290 730 290 710 Z" fill="#F43F5E"/>
+    <path d="M 295 700 C 330 725 410 725 445 700" stroke="url(#goldShine)" stroke-width="6" fill="none"/>
+
+    <!-- Corset / Bodice -->
+    <path d="M 345 385 C 345 385 355 380 370 380 C 385 380 395 385 395 385 L 398 450 C 385 452 355 452 342 450 Z" fill="#E11D48"/>
+
+    <!-- Head & Smile -->
+    <ellipse cx="370" cy="338" rx="19" ry="23" fill="#F8C096"/>
+    <!-- Elegant Updo Hair with Diamond Tiara -->
+    <path d="M 350 330 C 350 300 390 300 390 330 Z" fill="#1C1917"/>
+    <path d="M 358 318 Q 370 310 382 318" stroke="#FDE68A" stroke-width="3" fill="none"/>
+    <ellipse cx="363" cy="336" rx="2" ry="2" fill="#3E2723"/>
+    <ellipse cx="377" cy="336" rx="2" ry="2" fill="#3E2723"/>
+    <path d="M 366 347 Q 370 352 376 347" stroke="#BE123C" stroke-width="2" fill="none"/>
+
+    <!-- Bride Arm Linking with Groom -->
+    <path d="M 345 400 Q 300 420 280 440" stroke="#F8C096" stroke-width="8" fill="none" stroke-linecap="round"/>
+  </g>
+
+  <!-- Bottom Badge -->
+  <g transform="translate(170, 735)">
+    <rect x="0" y="0" width="260" height="38" rx="19" fill="#1E293B" stroke="url(#goldShine)" stroke-width="1.5"/>
+    <text x="130" y="24" text-anchor="middle" font-family="serif, sans-serif" font-size="13" font-weight="bold" fill="#FEF3C7" letter-spacing="2">
+      ROYAL RECEPTION GALA
+    </text>
+  </g>
+</svg>

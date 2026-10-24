@@ -1,0 +1,339 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 800" width="100%" height="100%">
+  <defs>
+    <!-- Background Gradient -->
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#FFF9F2"/>
+      <stop offset="40%" stop-color="#FBF0E6"/>
+      <stop offset="80%" stop-color="#F5E4D8"/>
+      <stop offset="100%" stop-color="#EDD3C4"/>
+    </linearGradient>
+
+    <!-- Warm Mandap Glow -->
+    <radialGradient id="mandapGlow" cx="50%" cy="45%" r="48%">
+      <stop offset="0%" stop-color="#FFFBEB" stop-opacity="0.9"/>
+      <stop offset="60%" stop-color="#FEF3C7" stop-opacity="0.4"/>
+      <stop offset="100%" stop-color="#FDE68A" stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- Agni Glow -->
+    <radialGradient id="fireGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#FFEDD5" stop-opacity="0.95"/>
+      <stop offset="40%" stop-color="#FDBA74" stop-opacity="0.6"/>
+      <stop offset="100%" stop-color="#F97316" stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- Gold Gradients -->
+    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FDE68A"/>
+      <stop offset="45%" stop-color="#D97706"/>
+      <stop offset="70%" stop-color="#F59E0B"/>
+      <stop offset="100%" stop-color="#B45309"/>
+    </linearGradient>
+    <linearGradient id="softGold" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#FCD34D"/>
+      <stop offset="100%" stop-color="#B45309"/>
+    </linearGradient>
+
+    <!-- Silk Red Bridal Gradient -->
+    <linearGradient id="bridalRed" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#C53030"/>
+      <stop offset="50%" stop-color="#9B1C1C"/>
+      <stop offset="100%" stop-color="#771D1D"/>
+    </linearGradient>
+
+    <!-- Groom Sherwani Gradient -->
+    <linearGradient id="sherwaniGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#FFFDF9"/>
+      <stop offset="50%" stop-color="#F7EFE5"/>
+      <stop offset="100%" stop-color="#EADBCC"/>
+    </linearGradient>
+
+    <!-- Royal Maroon Stole Gradient -->
+    <linearGradient id="royalMaroon" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#881337"/>
+      <stop offset="60%" stop-color="#580F25"/>
+      <stop offset="100%" stop-color="#3F0A19"/>
+    </linearGradient>
+
+    <!-- Drop Shadows -->
+    <filter id="softShadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#701A2B" flood-opacity="0.18"/>
+    </filter>
+    <filter id="fireBlur" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="4"/>
+    </filter>
+  </defs>
+
+  <!-- Canvas Background -->
+  <rect width="600" height="800" fill="url(#bgGrad)"/>
+  <circle cx="300" cy="380" r="280" fill="url(#mandapGlow)"/>
+
+  <!-- Architectural Palace Arch Background -->
+  <path d="M 50 800 L 50 250 C 50 120 180 50 300 50 C 420 50 550 120 550 250 L 550 800 Z" fill="none" stroke="#E6D3C4" stroke-width="2" stroke-dasharray="6,4"/>
+  <path d="M 75 800 L 75 260 C 75 145 190 75 300 75 C 410 75 525 145 525 260 L 525 800 Z" fill="none" stroke="#D8BEAB" stroke-width="1.5"/>
+
+  <!-- ================= MANDAP CANOPY & PILLARS ================= -->
+  <!-- Left Mandap Pillar -->
+  <g id="leftPillar">
+    <rect x="70" y="160" width="22" height="560" rx="4" fill="url(#goldGrad)" opacity="0.85"/>
+    <rect x="64" y="150" width="34" height="15" rx="3" fill="#D97706"/>
+    <rect x="60" y="710" width="42" height="20" rx="4" fill="#B45309"/>
+    <!-- Pillar Floral Wrap (Marigold & Jasmine) -->
+    <path d="M 68 180 Q 92 195 72 230 Q 92 255 72 290 Q 92 315 72 350 Q 92 375 72 410 Q 92 435 72 470 Q 92 495 72 530 Q 92 555 72 590 Q 92 615 72 650 Q 92 675 72 710" fill="none" stroke="#F59E0B" stroke-width="8" stroke-linecap="round"/>
+    <path d="M 70 190 Q 90 205 70 240 Q 90 265 70 300 Q 90 325 70 360 Q 90 385 70 420 Q 90 445 70 480 Q 90 505 70 540 Q 90 565 70 600 Q 90 625 70 660 Q 90 685 70 710" fill="none" stroke="#FFFBEB" stroke-width="3" stroke-linecap="round"/>
+    <!-- Sheer Drapes Behind Pillar -->
+    <path d="M 70 160 Q 30 350 45 720 L 70 720 Z" fill="#9B1C1C" opacity="0.25"/>
+  </g>
+
+  <!-- Right Mandap Pillar -->
+  <g id="rightPillar">
+    <rect x="508" y="160" width="22" height="560" rx="4" fill="url(#goldGrad)" opacity="0.85"/>
+    <rect x="502" y="150" width="34" height="15" rx="3" fill="#D97706"/>
+    <rect x="498" y="710" width="42" height="20" rx="4" fill="#B45309"/>
+    <!-- Pillar Floral Wrap -->
+    <path d="M 528 180 Q 508 195 528 230 Q 508 255 528 290 Q 508 315 528 350 Q 508 375 528 410 Q 508 435 528 470 Q 508 495 528 530 Q 508 555 528 590 Q 508 615 528 650 Q 508 675 528 710" fill="none" stroke="#F59E0B" stroke-width="8" stroke-linecap="round"/>
+    <path d="M 530 190 Q 510 205 530 240 Q 510 265 530 300 Q 510 325 530 360 Q 510 385 530 420 Q 510 445 530 480 Q 510 505 530 540 Q 510 565 530 600 Q 510 625 530 660 Q 510 685 530 710" fill="none" stroke="#FFFBEB" stroke-width="3" stroke-linecap="round"/>
+    <!-- Sheer Drapes Behind Pillar -->
+    <path d="M 530 160 Q 570 350 555 720 L 530 720 Z" fill="#9B1C1C" opacity="0.25"/>
+  </g>
+
+  <!-- Top Mandap Floral Canopy -->
+  <g id="canopy">
+    <!-- Top arch beam -->
+    <path d="M 60 160 Q 300 115 540 160" fill="none" stroke="url(#goldGrad)" stroke-width="12" stroke-linecap="round"/>
+    <!-- Marigold Tassels Hanging -->
+    <path d="M 100 165 Q 160 200 220 165" fill="none" stroke="#F59E0B" stroke-width="6"/>
+    <path d="M 220 165 Q 300 205 380 165" fill="none" stroke="#F59E0B" stroke-width="6"/>
+    <path d="M 380 165 Q 440 200 500 165" fill="none" stroke="#F59E0B" stroke-width="6"/>
+
+    <!-- Hanging Flower Drops -->
+    <g fill="#EA580C" stroke="#F59E0B" stroke-width="1">
+      <circle cx="160" cy="190" r="7"/>
+      <circle cx="160" cy="206" r="5"/>
+      <circle cx="160" cy="220" r="4"/>
+
+      <circle cx="300" cy="198" r="8"/>
+      <circle cx="300" cy="216" r="6"/>
+      <circle cx="300" cy="232" r="4"/>
+
+      <circle cx="440" cy="190" r="7"/>
+      <circle cx="440" cy="206" r="5"/>
+      <circle cx="440" cy="220" r="4"/>
+    </g>
+
+    <!-- Hanging Brass Bells with Gold Chain -->
+    <g>
+      <line x1="230" y1="165" x2="230" y2="215" stroke="#D97706" stroke-width="1.5"/>
+      <path d="M 222 225 C 222 215 238 215 238 225 L 241 230 L 219 230 Z" fill="url(#goldGrad)"/>
+      <circle cx="230" cy="233" r="2.5" fill="#78350F"/>
+
+      <line x1="370" y1="165" x2="370" y2="215" stroke="#D97706" stroke-width="1.5"/>
+      <path d="M 362 225 C 362 215 378 215 378 225 L 381 230 L 359 230 Z" fill="url(#goldGrad)"/>
+      <circle cx="370" cy="233" r="2.5" fill="#78350F"/>
+    </g>
+  </g>
+
+  <!-- ================= WEDDING STAGE & SACRED FIRE HAVAN KUND ================= -->
+  <!-- Mandap Platform Floor -->
+  <ellipse cx="300" cy="725" rx="240" ry="40" fill="#EADBCF" stroke="#D4BEAD" stroke-width="2"/>
+  <ellipse cx="300" cy="725" rx="200" ry="30" fill="#F4EAE1"/>
+
+  <!-- Rangoli Petals Circle around Fire -->
+  <ellipse cx="300" cy="700" rx="90" ry="18" fill="none" stroke="#DC2626" stroke-width="2" stroke-dasharray="6,4"/>
+  <ellipse cx="300" cy="700" rx="75" ry="14" fill="none" stroke="#F59E0B" stroke-width="2" stroke-dasharray="4,4"/>
+
+  <!-- Havan Kund (Tiered Sacred Copper Altar) -->
+  <g id="havanKund" filter="url(#softShadow)">
+    <polygon points="230,715 370,715 350,735 250,735" fill="#92400E"/>
+    <polygon points="245,695 355,695 365,715 235,715" fill="#B45309"/>
+    <polygon points="255,680 345,680 350,695 250,695" fill="#D97706"/>
+    <polygon points="262,678 338,678 344,685 256,685" fill="#78350F"/>
+
+    <!-- Sacred Wood Logs -->
+    <rect x="275" y="665" width="50" height="10" rx="3" transform="rotate(-15 300 670)" fill="#451A03"/>
+    <rect x="275" y="665" width="50" height="10" rx="3" transform="rotate(20 300 670)" fill="#78350F"/>
+
+    <!-- Sacred Holy Fire (Agni Dev) -->
+    <circle cx="300" cy="650" r="35" fill="url(#fireGlow)"/>
+    <!-- Fire Flames -->
+    <path d="M 290 675 Q 285 640 298 620 Q 303 645 315 650 Q 320 635 310 615 Q 330 645 320 675 Z" fill="#F97316"/>
+    <path d="M 294 675 Q 292 650 300 632 Q 306 652 312 658 Q 314 645 308 630 Q 320 655 314 675 Z" fill="#FDE047"/>
+  </g>
+
+  <!-- ================= GROOM (DIVYESH) - LEFT ================= -->
+  <g id="groom" filter="url(#softShadow)">
+    <!-- Groom Body / Sherwani -->
+    <path d="M 185 410 C 185 360 215 350 240 350 C 265 350 290 360 290 410 L 295 560 C 295 590 275 620 240 620 C 205 620 185 590 185 560 Z" fill="url(#sherwaniGrad)"/>
+    <!-- Sherwani Buttons & Gold Collar -->
+    <path d="M 240 350 L 240 580" stroke="url(#goldGrad)" stroke-width="3"/>
+    <g fill="#D97706">
+      <circle cx="240" cy="380" r="2.5"/>
+      <circle cx="240" cy="405" r="2.5"/>
+      <circle cx="240" cy="430" r="2.5"/>
+      <circle cx="240" cy="455" r="2.5"/>
+      <circle cx="240" cy="480" r="2.5"/>
+      <circle cx="240" cy="505" r="2.5"/>
+    </g>
+
+    <!-- Groom Churidar Pajama / Legs -->
+    <path d="M 205 615 L 212 705 L 230 705 L 226 615 Z" fill="#EADBCC"/>
+    <path d="M 248 615 L 244 705 L 262 705 L 269 615 Z" fill="#EADBCC"/>
+    <!-- Royal Mojari (Groom Shoes) -->
+    <path d="M 206 705 C 200 705 195 709 202 714 C 215 716 234 716 234 705 Z" fill="#9B1C1C"/>
+    <path d="M 244 705 C 244 716 263 716 276 714 C 283 709 278 705 272 705 Z" fill="#9B1C1C"/>
+
+    <!-- Royal Maroon Dupatta / Angavastram -->
+    <path d="M 200 375 Q 170 460 190 550 Q 200 590 205 630 L 220 630 Q 215 580 208 540 Q 192 460 216 375 Z" fill="url(#royalMaroon)"/>
+    <path d="M 200 375 Q 170 460 190 550 Q 200 590 205 630" stroke="url(#goldGrad)" stroke-width="2.5" fill="none"/>
+
+    <!-- Groom Left Arm (Greeting / Anjali Mudra towards Bride) -->
+    <path d="M 268 400 Q 295 440 285 470 L 272 468 Q 280 435 260 405 Z" fill="url(#sherwaniGrad)"/>
+    <!-- Groom Hand with Ring -->
+    <circle cx="282" cy="475" r="8" fill="#F8C79D"/>
+
+    <!-- Groom Neck & Face -->
+    <rect x="230" y="325" width="20" height="28" rx="6" fill="#EDB286"/>
+    <!-- Face -->
+    <ellipse cx="240" cy="305" rx="22" ry="26" fill="#F9C69D"/>
+    <!-- Groom Smile & Features -->
+    <ellipse cx="233" cy="302" rx="2" ry="2.5" fill="#3E2723"/>
+    <ellipse cx="247" cy="302" rx="2" ry="2.5" fill="#3E2723"/>
+    <path d="M 230 293 Q 235 290 240 293" stroke="#3E2723" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+    <path d="M 244 293 Q 249 290 254 293" stroke="#3E2723" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+    <path d="M 235 316 Q 240 323 247 316" stroke="#C53030" stroke-width="2" fill="none" stroke-linecap="round"/>
+    <!-- Groom Well-groomed Beard line -->
+    <path d="M 222 305 Q 225 328 240 331 Q 255 328 258 305" stroke="#4A2810" stroke-width="2.5" fill="none" opacity="0.4"/>
+
+    <!-- Groom Royal Wedding Safa (Turban) -->
+    <path d="M 215 295 C 215 255 235 245 255 255 C 268 260 272 280 265 298 Z" fill="#9B1C1C"/>
+    <path d="M 216 288 Q 242 278 265 290" stroke="url(#goldGrad)" stroke-width="4" fill="none"/>
+    <path d="M 218 276 Q 242 268 262 280" stroke="url(#goldGrad)" stroke-width="3" fill="none"/>
+    <!-- Kalgi (Royal Feather & Emerald Jewel) -->
+    <path d="M 240 250 Q 236 215 248 220 Q 244 238 244 250 Z" fill="#FDE68A"/>
+    <circle cx="240" cy="254" r="5" fill="#047857"/>
+    <circle cx="240" cy="254" r="2.5" fill="#F59E0B"/>
+    <!-- Turban Trailing Cloth -->
+    <path d="M 218 290 Q 205 320 208 360 L 214 358 Q 212 322 222 292 Z" fill="#7F1D1D"/>
+
+    <!-- Groom Jaimala / Rose Floral Garland -->
+    <path d="M 224 355 Q 240 435 258 355" fill="none" stroke="#DC2626" stroke-width="7" stroke-linecap="round"/>
+    <path d="M 224 355 Q 240 435 258 355" fill="none" stroke="#FEF3C7" stroke-width="3" stroke-linecap="round"/>
+  </g>
+
+  <!-- ================= BRIDE (JANKI) - RIGHT ================= -->
+  <g id="bride" filter="url(#softShadow)">
+    <!-- Bridal Lehenga Skirt (Flared Royal Red) -->
+    <path d="M 320 440 C 320 440 335 435 365 435 C 395 435 410 440 410 440 L 440 680 C 440 705 400 715 365 715 C 330 715 290 705 290 680 Z" fill="url(#bridalRed)"/>
+    
+    <!-- Intricate Zari Gold Embroidery on Lehenga -->
+    <path d="M 292 675 C 325 698 405 698 438 675" stroke="url(#goldGrad)" stroke-width="8" fill="none"/>
+    <path d="M 297 655 C 330 678 400 678 433 655" stroke="url(#goldGrad)" stroke-width="3" fill="none"/>
+    <g fill="#FDE68A" opacity="0.85">
+      <circle cx="320" cy="620" r="4"/>
+      <circle cx="345" cy="625" r="4"/>
+      <circle cx="365" cy="627" r="4"/>
+      <circle cx="385" cy="625" r="4"/>
+      <circle cx="410" cy="620" r="4"/>
+
+      <circle cx="330" cy="570" r="3"/>
+      <circle cx="365" cy="573" r="3"/>
+      <circle cx="400" cy="570" r="3"/>
+
+      <circle cx="345" cy="520" r="3"/>
+      <circle cx="385" cy="520" r="3"/>
+    </g>
+
+    <!-- Bridal Choli (Blouse) -->
+    <path d="M 335 365 C 335 365 348 360 365 360 C 382 360 395 365 395 365 L 398 435 C 385 438 375 438 365 438 C 355 438 345 438 332 435 Z" fill="#991B1B"/>
+    <path d="M 345 362 Q 365 378 385 362" stroke="url(#goldGrad)" stroke-width="3" fill="none"/>
+
+    <!-- Midriff (Navel / Waist) -->
+    <rect x="345" y="425" width="40" height="15" fill="#ECA97E"/>
+
+    <!-- Bride Left Hand with Mehndi & Bangles (Extending to Groom) -->
+    <path d="M 338 395 Q 315 425 295 470 L 305 474 Q 325 435 348 400 Z" fill="#991B1B"/>
+    <!-- Bride Forearm & Red Chooda Bangles -->
+    <g>
+      <rect x="296" y="455" width="10" height="16" rx="2" fill="#DC2626"/>
+      <line x1="295" y1="458" x2="307" y2="458" stroke="#FDE68A" stroke-width="1.5"/>
+      <line x1="295" y1="465" x2="307" y2="465" stroke="#FDE68A" stroke-width="1.5"/>
+      <!-- Mehndi on Hand -->
+      <circle cx="294" cy="474" r="7" fill="#ECA97E"/>
+      <circle cx="293" cy="474" r="3" fill="#78350F"/>
+    </g>
+
+    <!-- Bride Neck & Face -->
+    <rect x="355" y="332" width="20" height="26" rx="5" fill="#ECA97E"/>
+    <!-- Kundan Bridal Necklace (Haar) -->
+    <path d="M 353 350 Q 365 366 377 350" stroke="url(#goldGrad)" stroke-width="5" fill="none"/>
+    <circle cx="365" cy="364" r="3.5" fill="#047857"/>
+
+    <!-- Bride Face -->
+    <ellipse cx="365" cy="312" rx="21" ry="24" fill="#F8C096"/>
+    <!-- Bride Smile & Delicate Features -->
+    <ellipse cx="357" cy="310" rx="2" ry="2.2" fill="#3E2723"/>
+    <ellipse cx="373" cy="310" rx="2" ry="2.2" fill="#3E2723"/>
+    <!-- Almond Eyeliner / Kajal -->
+    <path d="M 353 308 Q 358 306 362 309" stroke="#1F2937" stroke-width="1.6" fill="none"/>
+    <path d="M 369 309 Q 373 306 378 308" stroke="#1F2937" stroke-width="1.6" fill="none"/>
+    <!-- Bindi -->
+    <circle cx="365" cy="301" r="2.2" fill="#DC2626"/>
+    <!-- Nath (Bridal Nose Ring) -->
+    <circle cx="360" cy="314" r="3" stroke="#F59E0B" stroke-width="1.2" fill="none"/>
+    <path d="M 358 314 Q 352 316 350 318" stroke="#FDE68A" stroke-width="0.8" fill="none"/>
+    <!-- Sweet Pink Lips -->
+    <path d="M 360 322 Q 365 327 371 322" stroke="#BE123C" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+
+    <!-- Bridal Hairstyle & Ornate Maang Tikka -->
+    <path d="M 344 306 C 344 285 365 278 386 306 Z" fill="#1C1917"/>
+    <!-- Maang Tikka Jewel -->
+    <line x1="365" y1="285" x2="365" y2="299" stroke="#F59E0B" stroke-width="1.5"/>
+    <circle cx="365" cy="299" r="3" fill="#D97706"/>
+
+    <!-- Bridal Sheer Dupatta (Veil draped over head) -->
+    <path d="M 340 286 C 340 268 390 268 390 286 C 410 320 422 410 422 550 L 406 550 C 406 415 398 335 385 295 C 375 285 355 285 345 295 C 335 325 328 410 328 530 L 314 530 C 314 410 326 315 340 286 Z" fill="url(#bridalRed)" opacity="0.88"/>
+    <!-- Golden Border of Dupatta -->
+    <path d="M 340 286 C 340 268 390 268 390 286" stroke="url(#goldGrad)" stroke-width="5" fill="none"/>
+    <path d="M 390 286 C 410 320 422 410 422 550" stroke="url(#goldGrad)" stroke-width="3" fill="none"/>
+
+    <!-- Bride Jaimala / Rose Floral Garland -->
+    <path d="M 348 360 Q 365 435 382 360" fill="none" stroke="#DC2626" stroke-width="7" stroke-linecap="round"/>
+    <path d="M 348 360 Q 365 435 382 360" fill="none" stroke="#FEF3C7" stroke-width="3" stroke-linecap="round"/>
+  </g>
+
+  <!-- ================= GATHBANDHAN (SACRED WEDDING KNOT) ================= -->
+  <!-- Knot connecting Groom's maroon stole and Bride's red dupatta -->
+  <path d="M 215 540 Q 285 520 295 474" stroke="url(#goldGrad)" stroke-width="4" fill="none" stroke-linecap="round"/>
+  <circle cx="280" cy="510" r="5" fill="#D97706"/>
+  <circle cx="280" cy="510" r="2.5" fill="#FEF3C7"/>
+
+  <!-- ================= CELEBRATORY FALLING ROSE PETALS ================= -->
+  <g fill="#EF4444" opacity="0.75">
+    <ellipse cx="140" cy="270" rx="6" ry="3" transform="rotate(25 140 270)"/>
+    <ellipse cx="190" cy="220" rx="5" ry="2.5" transform="rotate(-35 190 220)"/>
+    <ellipse cx="260" cy="180" rx="6" ry="3" transform="rotate(45 260 180)"/>
+    <ellipse cx="340" cy="220" rx="5" ry="3" transform="rotate(-15 340 220)"/>
+    <ellipse cx="420" cy="260" rx="6" ry="3.5" transform="rotate(30 420 260)"/>
+    <ellipse cx="480" cy="310" rx="5" ry="3" transform="rotate(-40 480 310)"/>
+
+    <ellipse cx="170" cy="480" rx="6" ry="3" transform="rotate(15 170 480)"/>
+    <ellipse cx="430" cy="460" rx="5" ry="2.5" transform="rotate(-25 430 460)"/>
+    <ellipse cx="370" cy="650" rx="6" ry="3" transform="rotate(35 370 650)"/>
+  </g>
+  <g fill="#F59E0B" opacity="0.8">
+    <circle cx="160" cy="330" r="3"/>
+    <circle cx="220" cy="260" r="3.5"/>
+    <circle cx="380" cy="280" r="3.5"/>
+    <circle cx="450" cy="380" r="3"/>
+    <circle cx="270" cy="460" r="2.5"/>
+    <circle cx="330" cy="460" r="2.5"/>
+  </g>
+
+  <!-- ================= BOTTOM ELEGANT RIBBON LABEL ================= -->
+  <g transform="translate(160, 740)">
+    <rect x="0" y="0" width="280" height="38" rx="19" fill="#781A2C" stroke="#D97706" stroke-width="1.5" filter="url(#softShadow)"/>
+    <text x="140" y="24" text-anchor="middle" font-family="'Cinzel Decorative', 'Marcellus', serif, sans-serif" font-size="13" font-weight="bold" fill="#FEF3C7" letter-spacing="2">
+      SHUBH VIVAH · MANDAP
+    </text>
+  </g>
+</svg>

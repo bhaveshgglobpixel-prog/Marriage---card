@@ -1,0 +1,6 @@
+{
+  "name": "Royal Wedding Invitation - Divyesh & Janki",
+  "description": "An exquisitely crafted luxury interactive digital wedding invitation card for Divyesh & Janki featuring direct envelope opening video, interactive scratch-to-reveal heart date, live countdown, Indian wedding itinerary, Google Maps venue location, and RSVP.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

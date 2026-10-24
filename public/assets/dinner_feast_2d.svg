@@ -1,0 +1,120 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 800" width="100%" height="100%">
+  <defs>
+    <linearGradient id="dinBg" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#2D1418"/>
+      <stop offset="50%" stop-color="#4A1D24"/>
+      <stop offset="100%" stop-color="#702230"/>
+    </linearGradient>
+    <linearGradient id="brassGold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FDE68A"/>
+      <stop offset="40%" stop-color="#F59E0B"/>
+      <stop offset="100%" stop-color="#B45309"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="600" height="800" fill="url(#dinBg)"/>
+
+  <!-- Warm Banquet Candlelight Glow -->
+  <radialGradient id="feastGlow" cx="50%" cy="50%" r="50%">
+    <stop offset="0%" stop-color="#FEF08A" stop-opacity="0.3"/>
+    <stop offset="100%" stop-color="#FEF08A" stop-opacity="0"/>
+  </radialGradient>
+  <circle cx="300" cy="460" r="260" fill="url(#feastGlow)"/>
+
+  <!-- Elegant Hanging Chandelier -->
+  <g transform="translate(300, 110)">
+    <line x1="0" y1="-80" x2="0" y2="20" stroke="#FDE68A" stroke-width="2"/>
+    <path d="M -80 30 Q 0 -5 80 30" fill="none" stroke="url(#brassGold)" stroke-width="4"/>
+    <path d="M -50 45 Q 0 10 50 45" fill="none" stroke="url(#brassGold)" stroke-width="3"/>
+    <!-- Crystal drops -->
+    <g fill="#FEF9C3">
+      <circle cx="-80" cy="35" r="4"/>
+      <circle cx="-50" cy="50" r="4"/>
+      <circle cx="0" cy="55" r="5"/>
+      <circle cx="50" cy="50" r="4"/>
+      <circle cx="80" cy="35" r="4"/>
+    </g>
+    <!-- Little candles -->
+    <g fill="#F59E0B">
+      <rect x="-83" y="18" width="6" height="12" rx="1"/>
+      <rect x="-53" y="33" width="6" height="12" rx="1"/>
+      <rect x="-3" y="38" width="6" height="12" rx="1"/>
+      <rect x="47" y="33" width="6" height="12" rx="1"/>
+      <rect x="77" y="18" width="6" height="12" rx="1"/>
+      <!-- Flames -->
+      <circle cx="-80" cy="14" r="3" fill="#FDE047"/>
+      <circle cx="-50" cy="29" r="3" fill="#FDE047"/>
+      <circle cx="0" cy="34" r="3.5" fill="#FDE047"/>
+      <circle cx="50" cy="29" r="3" fill="#FDE047"/>
+      <circle cx="80" cy="14" r="3" fill="#FDE047"/>
+    </g>
+  </g>
+
+  <!-- Royal Dining Table (Perspective) -->
+  <ellipse cx="300" cy="580" rx="240" ry="110" fill="#FFFBF5" stroke="#E5D5C5" stroke-width="3"/>
+  <ellipse cx="300" cy="580" rx="220" ry="98" fill="#FDF7EE"/>
+
+  <!-- Royal Indian Thali (Centerpiece Platter) -->
+  <g transform="translate(300, 560)">
+    <!-- Main Big Brass / Gold Thali Plate -->
+    <circle cx="0" cy="0" r="105" fill="url(#brassGold)" stroke="#92400E" stroke-width="3"/>
+    <circle cx="0" cy="0" r="98" fill="#FDF3E7"/>
+
+    <!-- Bowls (Katoris) around the plate -->
+    <!-- Sweet / Shrikhand / Gulab Jamun -->
+    <g transform="translate(-50, -50)">
+      <circle cx="0" cy="0" r="22" fill="url(#brassGold)"/>
+      <circle cx="0" cy="0" r="19" fill="#FFFBEB"/>
+      <circle cx="0" cy="0" r="12" fill="#78350F"/>
+      <circle cx="0" cy="0" r="4" fill="#059669"/>
+    </g>
+    <!-- Dal / Gujarati Kadhi -->
+    <g transform="translate(0, -68)">
+      <circle cx="0" cy="0" r="22" fill="url(#brassGold)"/>
+      <circle cx="0" cy="0" r="19" fill="#FEF08A"/>
+      <circle cx="0" cy="0" r="10" fill="#F59E0B"/>
+    </g>
+    <!-- Paneer / Undhiyu Sabzi -->
+    <g transform="translate(50, -50)">
+      <circle cx="0" cy="0" r="22" fill="url(#brassGold)"/>
+      <circle cx="0" cy="0" r="19" fill="#EA580C"/>
+      <rect x="-6" y="-6" width="12" height="12" rx="2" fill="#FEF3C7"/>
+    </g>
+    <!-- Raita / Chutney -->
+    <g transform="translate(-68, 10)">
+      <circle cx="0" cy="0" r="20" fill="url(#brassGold)"/>
+      <circle cx="0" cy="0" r="17" fill="#FEE2E2"/>
+      <circle cx="0" cy="0" r="8" fill="#DC2626"/>
+    </g>
+    <!-- Green Mint Chutney -->
+    <g transform="translate(68, 10)">
+      <circle cx="0" cy="0" r="20" fill="url(#brassGold)"/>
+      <circle cx="0" cy="0" r="17" fill="#86EFAC"/>
+      <circle cx="0" cy="0" r="8" fill="#15803D"/>
+    </g>
+
+    <!-- Center: Fluffy Basmati Pulao & Hot Puri / Roti -->
+    <ellipse cx="0" cy="18" rx="38" ry="26" fill="#FEF9C3"/>
+    <circle cx="-12" cy="12" r="15" fill="#D97706" opacity="0.8"/>
+    <circle cx="12" cy="18" r="14" fill="#B45309" opacity="0.85"/>
+    <circle cx="2" cy="8" r="16" fill="#F59E0B"/>
+  </g>
+
+  <!-- Brass Water Goblet (Lota / Glass) -->
+  <g transform="translate(140, 500)">
+    <path d="M 0 0 L 25 0 L 20 45 L 5 45 Z" fill="url(#brassGold)"/>
+    <ellipse cx="12.5" cy="0" rx="12.5" ry="4" fill="#FDE68A"/>
+  </g>
+
+  <!-- Decorative Floral Marigold & Rose Garland Border -->
+  <path d="M 80 690 Q 300 730 520 690" stroke="#F59E0B" stroke-width="8" fill="none" stroke-linecap="round"/>
+  <path d="M 80 690 Q 300 730 520 690" stroke="#DC2626" stroke-width="4" stroke-dasharray="12,12" fill="none" stroke-linecap="round"/>
+
+  <!-- Bottom Badge -->
+  <g transform="translate(170, 735)">
+    <rect x="0" y="0" width="260" height="38" rx="19" fill="#4A1D24" stroke="#F59E0B" stroke-width="1.5"/>
+    <text x="130" y="24" text-anchor="middle" font-family="serif, sans-serif" font-size="13" font-weight="bold" fill="#FEF3C7" letter-spacing="2">
+      ROYAL WEDDING DINNER
+    </text>
+  </g>
+</svg>
