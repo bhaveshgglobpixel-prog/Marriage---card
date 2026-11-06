@@ -16,10 +16,10 @@ export const OliveWeddingCard: React.FC<OliveWeddingCardProps> = ({
   onOpenGuestbook,
   onOpenShare,
 }) => {
-  // Couple names: Janaki & Divyesh (Bride first)
+  // Couple names: Janki & Divyesh (Bride first)
   const [couple] = useState({
     groom: 'Divyesh',
-    bride: 'Janaki',
+    bride: 'Janki',
     dateDisplay: '16 December 2026',
     dayOfWeek: 'WEDNESDAY',
     dayNumber: '16',
@@ -96,7 +96,7 @@ export const OliveWeddingCard: React.FC<OliveWeddingCardProps> = ({
       >
         {/* Names & Family details placed directly over the palace garden parchment without any rectangle box */}
         <div className="pt-20 sm:pt-24 z-10 px-2 sm:px-4 text-center">
-          {/* BRIDE SECTION: Big cursive Janaki with parents directly on background */}
+          {/* BRIDE SECTION: Big cursive Janki with parents directly on background */}
           <div className="my-1 anim-fast-text" style={{ animationDelay: '100ms' }}>
             <h1 className="font-script text-6xl sm:text-7xl text-[#A24F61] tracking-wide font-normal drop-shadow-[0_2px_4px_rgba(255,255,255,0.95)] leading-tight">
               {couple.bride}
@@ -172,7 +172,7 @@ export const OliveWeddingCard: React.FC<OliveWeddingCardProps> = ({
                   <span>TODAY IS THE WEDDING DAY!</span>
                 </div>
                 <p className="font-description text-xs text-[#fae8ec] mt-3 leading-relaxed max-w-[280px] mx-auto">
-                  Heartfelt congratulations &amp; auspicious blessings to Janaki &amp; Divyesh on their sacred union!
+                  Heartfelt congratulations &amp; auspicious blessings to Janki &amp; Divyesh on their sacred union!
                 </p>
               </div>
             ) : (
@@ -307,7 +307,7 @@ export const OliveWeddingCard: React.FC<OliveWeddingCardProps> = ({
             Thank You!
           </h3>
           <p className="font-primary text-xs sm:text-sm font-semibold tracking-wider text-[#A24F61] uppercase">
-            Janaki &amp; Divyesh
+            Janki &amp; Divyesh
           </p>
 
           {/* Full-Size Couple Photo in Elegant Royal Arch Shape */}
@@ -319,7 +319,7 @@ export const OliveWeddingCard: React.FC<OliveWeddingCardProps> = ({
             <div className="relative rounded-t-[140px] rounded-b-3xl overflow-hidden shadow-2xl border-4 border-white aspect-[3/4] bg-[#faeff2]">
               <img
                 src="/assets/aistudio/Image__8__ff8d6062.jfif"
-                alt="Janaki & Divyesh - Forever & Always"
+                alt="Janki & Divyesh - Forever & Always"
                 className="w-full h-full object-cover object-[center_12%] transition-transform duration-700 group-hover:scale-105"
               />
 
@@ -328,7 +328,7 @@ export const OliveWeddingCard: React.FC<OliveWeddingCardProps> = ({
 
               <div className="absolute bottom-4 left-0 right-0 text-center pointer-events-none">
                 <span className="font-script text-3xl sm:text-4xl text-white font-normal drop-shadow-md block">
-                  Janaki &amp; Divyesh
+                  Janki &amp; Divyesh
                 </span>
                 <span className="text-[10px] tracking-[0.22em] text-[#fae8ec] uppercase font-description font-medium block mt-0.5">
                   Forever Begins Now

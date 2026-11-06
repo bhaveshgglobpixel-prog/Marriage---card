@@ -34,7 +34,7 @@ export const OliveRsvpModal: React.FC<OliveRsvpModalProps> = ({
       email: email.trim() || 'guest@example.com',
       guestCount,
       attendance,
-      message: message.trim() || 'Heartiest congratulations Janaki & Divyesh!',
+      message: message.trim() || 'Heartiest congratulations Janki & Divyesh!',
       submittedAt: 'Just now',
     };
 
@@ -100,7 +100,7 @@ export const OliveRsvpModal: React.FC<OliveRsvpModalProps> = ({
               </div>
               <h3 className="font-script text-3xl text-[#A24F61]">RSVP Confirmation</h3>
               <p className="font-description text-[11px] text-[#7d3d4b] mt-0.5">
-                Wedding of Janaki &amp; Divyesh · 16 December 2026
+                Wedding of Janki &amp; Divyesh · 16 December 2026
               </p>
             </div>
 
@@ -167,7 +167,7 @@ export const OliveRsvpModal: React.FC<OliveRsvpModalProps> = ({
             {/* Message */}
             <div>
               <label className="text-[11px] font-primary font-semibold text-[#5c2432] block mb-1">
-                Warm Wishes for Janaki &amp; Divyesh
+                Warm Wishes for Janki &amp; Divyesh
               </label>
               <textarea
                 rows={3}

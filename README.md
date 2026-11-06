@@ -1,4 +1,4 @@
-# Royal Wedding Invitation — Janaki & Divyesh
+# Royal Wedding Invitation — Janki & Divyesh
 
 A luxury interactive digital wedding invitation card crafted with React, Vite, and Tailwind CSS.
 

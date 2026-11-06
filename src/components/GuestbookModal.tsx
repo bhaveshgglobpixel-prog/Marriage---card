@@ -29,7 +29,7 @@ export const GuestbookModal: React.FC<GuestbookModalProps> = ({
                 Guest Wishes &amp; Blessings
               </h3>
               <p className="font-description text-[11px] text-[#7d3d4b]">
-                Warmest thoughts shared for Janaki &amp; Divyesh
+                Warmest thoughts shared for Janki &amp; Divyesh
               </p>
             </div>
           </div>
@@ -74,7 +74,7 @@ export const GuestbookModal: React.FC<GuestbookModalProps> = ({
         {/* Footer */}
         <div className="pt-3 border-t border-[#ebdcd2] text-center">
           <p className="font-description text-xs text-[#8c4959]">
-            Janaki &amp; Divyesh's Wedding Celebration · 16 December 2026
+            Janki &amp; Divyesh's Wedding Celebration · 16 December 2026
           </p>
         </div>
       </div>

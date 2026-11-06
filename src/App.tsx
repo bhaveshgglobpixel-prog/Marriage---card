@@ -45,7 +45,7 @@ export default function App() {
   const [isGuestbookOpen, setIsGuestbookOpen] = useState(false);
   const [isShareOpen, setIsShareOpen] = useState(false);
 
-  // RSVP state for Janaki & Divyesh
+  // RSVP state for Janki & Divyesh
   const [rsvps, setRsvps] = useState<RsvpEntry[]>(() => {
     const saved = localStorage.getItem('divyesh_janki_rsvps');
     if (saved) {
@@ -62,7 +62,7 @@ export default function App() {
         email: 'bhavin.patel@example.com',
         guestCount: '2 Guest(s)',
         attendance: 'joyfully_accept',
-        message: 'Heartiest congratulations Janaki & Divyesh! Counting down the days to celebrate in Surat.',
+        message: 'Heartiest congratulations Janki & Divyesh! Counting down the days to celebrate in Surat.',
         submittedAt: 'Yesterday',
       },
       {
@@ -147,7 +147,7 @@ export default function App() {
         data={{
           ...initialWeddingData,
           groomName: 'Divyesh',
-          brideName: 'Janaki',
+          brideName: 'Janki',
           eventMonthYear: 'December 16, 2026',
           venue: {
             ...initialWeddingData.venue,
