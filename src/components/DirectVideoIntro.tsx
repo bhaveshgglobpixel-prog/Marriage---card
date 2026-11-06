@@ -8,7 +8,6 @@ interface DirectVideoIntroProps {
 export const DirectVideoIntro: React.FC<DirectVideoIntroProps> = ({ onComplete }) => {
   const videoRef = useRef<HTMLVideoElement | null>(null);
   const [isMuted, setIsMuted] = useState(true);
-  const [progress, setProgress] = useState(0);
 
   useEffect(() => {
     const video = videoRef.current;
@@ -29,13 +28,6 @@ export const DirectVideoIntro: React.FC<DirectVideoIntroProps> = ({ onComplete }
     return () => clearTimeout(timer);
   }, [onComplete]);
 
-  const handleTimeUpdate = () => {
-    if (videoRef.current && videoRef.current.duration) {
-      const pct = (videoRef.current.currentTime / videoRef.current.duration) * 100;
-      setProgress(pct);
-    }
-  };
-
   const toggleSound = (e: React.MouseEvent) => {
     e.stopPropagation();
     if (videoRef.current) {
@@ -53,22 +45,18 @@ export const DirectVideoIntro: React.FC<DirectVideoIntroProps> = ({ onComplete }
       <div className="relative w-full max-w-[420px] aspect-[9/19.5] sm:max-h-[92vh] rounded-3xl overflow-hidden shadow-[0_25px_60px_rgba(0,0,0,0.6)] border border-[#8a223e]/40 bg-black">
         <video
           ref={videoRef}
-          src="/assets/aistudio/Dolce_Vita_Opening_Clean.mp4"
+          src="/assets/aistudio/Dolce_Vita___Mobile_envelope_opening_e45f9165.mp4"
           autoPlay
           muted
           playsInline
+          preload="auto"
           onEnded={onComplete}
-          onTimeUpdate={handleTimeUpdate}
+          onError={() => {
+            console.log('Video error fallback');
+            onComplete();
+          }}
           className="w-full h-full object-cover"
         />
-
-        {/* Progress Bar at the top */}
-        <div className="absolute top-0 left-0 right-0 h-1 bg-white/20 z-20">
-          <div
-            className="h-full bg-[#d4a34b] transition-all duration-100 ease-linear"
-            style={{ width: `${progress}%` }}
-          />
-        </div>
 
         {/* Top Control Overlay */}
         <div className="absolute top-4 right-4 z-20 flex items-center gap-2">

@@ -19,12 +19,10 @@ export default function App() {
   // Video plays directly on load without requiring any prior click
   const [isPlayingIntro, setIsPlayingIntro] = useState(true);
 
-  // Music plays by default ("Music Dufulit Chalu he rehna chahea") without CTA button
+  // Background audio initiates gracefully on user interaction
   useEffect(() => {
-    // Attempt playback immediately
     weddingAudio.play();
 
-    // Browser audio policy requires a user gesture (tap, click, scroll) to unblock Web Audio
     const handleGesture = () => {
       weddingAudio.play();
     };
@@ -47,7 +45,7 @@ export default function App() {
   const [isGuestbookOpen, setIsGuestbookOpen] = useState(false);
   const [isShareOpen, setIsShareOpen] = useState(false);
 
-  // RSVP state for Divyesh & Janki
+  // RSVP state for Janaki & Divyesh
   const [rsvps, setRsvps] = useState<RsvpEntry[]>(() => {
     const saved = localStorage.getItem('divyesh_janki_rsvps');
     if (saved) {
@@ -64,7 +62,7 @@ export default function App() {
         email: 'bhavin.patel@example.com',
         guestCount: '2 Guest(s)',
         attendance: 'joyfully_accept',
-        message: 'Heartiest congratulations Divyesh & Janki! Counting down the days to celebrate in Surat.',
+        message: 'Heartiest congratulations Janaki & Divyesh! Counting down the days to celebrate in Surat.',
         submittedAt: 'Yesterday',
       },
       {
@@ -89,22 +87,20 @@ export default function App() {
 
   return (
     <div className="min-h-screen bg-[#EFE6DD] text-[#2d161d] relative selection:bg-[#A24F61]/25 selection:text-[#5c1c2b] flex flex-col items-center">
-      
-      {/* 1. DIRECT VIDEO INTRO ON LOAD (Plays envelope opening immediately without prior click) */}
+      {/* 1. DIRECT VIDEO INTRO ON LOAD (Plays envelope opening video directly) */}
       {isPlayingIntro && (
         <DirectVideoIntro
           onComplete={() => {
             setIsPlayingIntro(false);
-            // Autoplay music upon video complete when user is engaged
             weddingAudio.play();
           }}
         />
       )}
 
-      {/* 2. AMBIENT FALLING ROSE PETALS & GOLD SPARKLES ANIMATION ACROSS FULL PAGE */}
+      {/* 2. AMBIENT FALLING ROSE PETALS ANIMATION */}
       <FallingPetals />
 
-      {/* Main Wedding Card Viewport (Flush to top, edge-to-edge without gaps on sides or top) */}
+      {/* Main Wedding Card Viewport */}
       <main className="w-full flex-1 flex flex-col items-center justify-start p-0 m-0 relative z-10">
         <OliveWeddingCard
           onOpenRsvpModal={() => setIsRsvpOpen(true)}
@@ -112,7 +108,7 @@ export default function App() {
           onOpenShare={() => setIsShareOpen(true)}
         />
 
-        {/* Quiet Replay Video Floating Pill at the very bottom */}
+        {/* Replay Video Button at bottom */}
         <div className="mt-8 mb-10 text-center no-print">
           <button
             type="button"
@@ -151,8 +147,8 @@ export default function App() {
         data={{
           ...initialWeddingData,
           groomName: 'Divyesh',
-          brideName: 'Janki',
-          eventMonthYear: 'December 15 & 16, 2026',
+          brideName: 'Janaki',
+          eventMonthYear: 'December 16, 2026',
           venue: {
             ...initialWeddingData.venue,
             name: 'Bapa Sitaram Palace Party Plot',

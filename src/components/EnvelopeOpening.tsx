@@ -67,11 +67,12 @@ export const EnvelopeOpening: React.FC<EnvelopeOpeningProps> = ({
         {/* Actual Dolce Vita Opening Video */}
         <video
           ref={videoRef}
-          src="/assets/aistudio/Dolce_Vita_Opening_Clean.mp4"
+          src="/assets/aistudio/Dolce_Vita___Mobile_envelope_opening_e45f9165.mp4"
           playsInline
           muted
           preload="auto"
           onEnded={onOpened}
+          onError={onOpened}
           className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-500 ${
             videoStarted ? 'opacity-100 z-20' : 'opacity-0 -z-10'
           }`}
@@ -114,7 +115,7 @@ export const EnvelopeOpening: React.FC<EnvelopeOpeningProps> = ({
                 Royal Wedding Invitation
               </span>
               <h2 className="font-serif-display text-2xl font-bold text-[#142e22] mt-1">
-                {groomName} &amp; {brideName}
+                {brideName} &amp; {groomName}
               </h2>
             </div>
 

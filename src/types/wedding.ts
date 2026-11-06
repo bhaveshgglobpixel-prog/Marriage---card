@@ -16,32 +16,20 @@ export interface VenueInfo {
   pincode: string;
   country: string;
   imageUrl?: string;
-  googleMapsUrl?: string;
-}
-
-export interface RsvpEntry {
-  id: string;
-  fullName: string;
-  email: string;
-  guestCount: string;
-  attendance: 'joyfully_accept' | 'regretfully_decline';
-  message: string;
-  submittedAt: string;
+  googleMapsUrl: string;
 }
 
 export interface ColorTheme {
   id: string;
   name: string;
-  primary: string; // e.g. #1b4332 (Royal Emerald)
-  primaryDark: string; // e.g. #0d281e
-  primaryLight: string; // e.g. #2d6a4f
-  accentGold: string; // e.g. #c59b27
-  accentGoldLight: string; // e.g. #e4c27a
-  bgLight: string; // e.g. #f4f8f5 (Sage Ivory)
-  bgCard: string; // e.g. #fbfdfb
-  textDark: string; // e.g. #10261c
-  textMuted: string; // e.g. #456354
-  borderColor: string; // e.g. #b7d1c2
+  primaryBg: string;
+  surfaceBg: string;
+  cardBg: string;
+  accentGold: string;
+  textHeading: string;
+  textBody: string;
+  textMuted: string;
+  borderColor: string;
   badgeGradient: string;
 }
 
@@ -54,7 +42,7 @@ export interface WeddingData {
   eventDayNumber: string;
   eventMonthYear: string;
   eventTimeDescription: string;
-  targetDateTimeIso: string; // ISO string for countdown calculation
+  targetDateTimeIso: string;
   blessingsKicker: string;
   groomParents: string;
   groomParentsRole: string;
@@ -73,6 +61,15 @@ export interface WeddingData {
   rsvpSubtext: string;
   footerEnquiryEmail: string;
   footerEnquiryPhone: string;
-  theme?: ColorTheme;
+  theme: ColorTheme;
 }
 
+export interface RsvpEntry {
+  id: string;
+  fullName: string;
+  email: string;
+  guestCount: string;
+  attendance: string;
+  message: string;
+  submittedAt: string;
+}

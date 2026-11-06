@@ -14,7 +14,7 @@ export const ShareModal: React.FC<ShareModalProps> = ({ isOpen, onClose, data })
   if (!isOpen) return null;
 
   const currentUrl = typeof window !== 'undefined' ? window.location.href : '';
-  const shareMessage = `🌸 You are warmly invited to the Wedding Celebration of ${data.groomName} & ${data.brideName} on ${data.eventMonthYear} in ${data.venue.city}! View the digital invitation here: ${currentUrl}`;
+  const shareMessage = `🌸 You are warmly invited to the Wedding Celebration of ${data.brideName} & ${data.groomName} on ${data.eventMonthYear} in ${data.venue.city}! View the digital invitation here: ${currentUrl}`;
   const whatsAppUrl = `https://api.whatsapp.com/send?text=${encodeURIComponent(shareMessage)}`;
 
   const copyTextToClipboard = async (text: string) => {
@@ -54,7 +54,6 @@ export const ShareModal: React.FC<ShareModalProps> = ({ isOpen, onClose, data })
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm animate-fadeIn">
       <div className="relative w-full max-w-md bg-[#faf6f2] border-2 border-[#A24F61]/35 rounded-3xl p-6 shadow-2xl overflow-hidden font-description">
-        
         {/* Header */}
         <div className="flex items-center justify-between pb-4 border-b border-[#A24F61]/20">
           <div>
@@ -84,62 +83,62 @@ export const ShareModal: React.FC<ShareModalProps> = ({ isOpen, onClose, data })
             className="w-full flex items-center justify-between p-3.5 rounded-2xl bg-[#25d366]/10 hover:bg-[#25d366]/20 border border-[#25d366]/30 text-[#0f6830] transition-colors cursor-pointer"
           >
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-full bg-[#25d366] text-white flex items-center justify-center shadow-sm">
-                <MessageCircle className="w-5 h-5 fill-white" />
+              <div className="w-9 h-9 rounded-full bg-[#25d366] text-white flex items-center justify-center">
+                <MessageCircle className="w-5 h-5" />
               </div>
               <div className="text-left">
-                <div className="text-sm font-bold text-[#1f2937] font-primary">Share via WhatsApp</div>
-                <div className="text-xs text-[#4b5563] font-description">Send directly to family &amp; friends</div>
+                <span className="font-primary font-bold text-xs text-[#0f6830] block">
+                  Share via WhatsApp
+                </span>
+                <span className="text-[11px] text-[#4d785a] block">
+                  Send directly to family &amp; friends
+                </span>
               </div>
             </div>
-            <span className="text-xs font-bold text-[#16a34a] font-primary">Send &rarr;</span>
+            <Share2 className="w-4 h-4 text-[#25d366]" />
           </a>
 
           {/* Copy Link */}
           <button
             type="button"
             onClick={handleCopyLink}
-            className="w-full flex items-center justify-between p-3.5 rounded-2xl bg-white hover:bg-[#faeff2] border border-[#ebdcd2] text-[#2d1219] transition-colors cursor-pointer"
+            className="w-full flex items-center justify-between p-3.5 rounded-2xl bg-white hover:bg-[#faeff2] border border-[#eed5db] text-[#A24F61] transition-colors cursor-pointer"
           >
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-full bg-[#A24F61]/15 text-[#A24F61] flex items-center justify-center">
-                {copied ? <Check className="w-5 h-5 text-emerald-600" /> : <Copy className="w-5 h-5" />}
+              <div className="w-9 h-9 rounded-full bg-[#faeff2] text-[#A24F61] flex items-center justify-center">
+                {copied ? <Check className="w-5 h-5 text-emerald-600" /> : <Copy className="w-4 h-4" />}
               </div>
               <div className="text-left">
-                <div className="text-sm font-bold text-[#1f2937] font-primary">
-                  {copied ? 'Link Copied!' : 'Copy Invitation Link'}
-                </div>
-                <div className="text-xs text-[#6b7280] font-description">Paste in messages, bio, or emails</div>
+                <span className="font-primary font-bold text-xs text-[#2d1219] block">
+                  {copied ? 'Link Copied to Clipboard!' : 'Copy Invitation Link'}
+                </span>
+                <span className="text-[11px] text-[#7d3d4b] block">
+                  {currentUrl ? currentUrl.slice(0, 32) + '...' : 'Copy web link to share anywhere'}
+                </span>
               </div>
             </div>
-            <span className="text-xs text-[#A24F61] font-bold font-primary">
-              {copied ? 'Copied' : 'Copy'}
-            </span>
           </button>
 
-          {/* Print Card */}
+          {/* Print / Save PDF */}
           <button
             type="button"
             onClick={handlePrint}
-            className="w-full flex items-center justify-between p-3.5 rounded-2xl bg-white hover:bg-[#faeff2] border border-[#ebdcd2] text-[#2d1219] transition-colors cursor-pointer"
+            className="w-full flex items-center justify-between p-3.5 rounded-2xl bg-white hover:bg-[#faeff2] border border-[#eed5db] text-[#A24F61] transition-colors cursor-pointer"
           >
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-full bg-[#A24F61]/15 text-[#A24F61] flex items-center justify-center">
-                <Printer className="w-5 h-5" />
+              <div className="w-9 h-9 rounded-full bg-[#faeff2] text-[#A24F61] flex items-center justify-center">
+                <Printer className="w-4 h-4" />
               </div>
               <div className="text-left">
-                <div className="text-sm font-bold text-[#1f2937] font-primary">Print / Save as PDF</div>
-                <div className="text-xs text-[#6b7280] font-description">High-resolution physical keepsake</div>
+                <span className="font-primary font-bold text-xs text-[#2d1219] block">
+                  Print or Save as PDF
+                </span>
+                <span className="text-[11px] text-[#7d3d4b] block">
+                  Download a printable keepsake version
+                </span>
               </div>
             </div>
-            <Share2 className="w-4 h-4 text-[#A24F61]" />
           </button>
-        </div>
-
-        {/* Preview message preview box */}
-        <div className="p-3 bg-[#faeff2] rounded-xl border border-[#ebd0d6] text-[11px] text-[#6e3745] leading-relaxed font-description text-left">
-          <p className="font-semibold text-[#2d1219] mb-1 font-primary">Preview WhatsApp Message:</p>
-          "{shareMessage}"
         </div>
       </div>
     </div>

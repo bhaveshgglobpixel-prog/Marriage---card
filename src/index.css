@@ -1,178 +1,110 @@
 @import "tailwindcss";
 
-@theme {
-  --font-primary: "DM Sans", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  --font-description: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  --font-sans: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  --font-serif: "DM Sans", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  --font-classic: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  --font-royal: "DM Sans", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-}
-
 @layer base {
   :root {
-    --color-primary: #A24F61;
-    --color-background: #EFE6DD;
-    --font-primary: "DM Sans", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-    --font-description: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-    --font-script: "Dancing Script", "Playball", "Satisfy", "Marck Script", cursive;
-    --font-cursive: "Dancing Script", "Playball", "Satisfy", "Marck Script", cursive;
-    --font-serif: "DM Sans", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    --primary-rose: #A24F61;
+    --primary-rose-dark: #803546;
+    --gold-accent: #c48e35;
+    --cream-bg: #EFE6DD;
   }
 
-  body {
+  /* Universal scrollbar removal across all platforms & browsers */
+  html, body {
     background-color: #EFE6DD;
     color: #2d161d;
-    font-family: var(--font-description);
+    font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
     margin: 0;
     padding: 0;
+    -webkit-font-smoothing: antialiased;
+    scrollbar-width: none !important; /* Firefox */
+    -ms-overflow-style: none !important; /* IE/Edge */
   }
 
-  p, span, label, input, textarea, select {
-    font-family: var(--font-description);
+  /* Hide scrollbar for Chrome, Safari, Opera & all elements */
+  ::-webkit-scrollbar {
+    display: none !important;
+    width: 0 !important;
+    height: 0 !important;
+  }
+
+  * {
+    scrollbar-width: none !important;
+    -ms-overflow-style: none !important;
   }
 }
 
-/* Explicit Utility Classes for Precision */
+.font-script {
+  font-family: 'Dancing Script', cursive;
+}
+
 .font-primary {
-  font-family: "DM Sans", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
+  font-family: 'Plus Jakarta Sans', sans-serif;
 }
 
 .font-description {
-  font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
+  font-family: 'Cormorant Garamond', Georgia, serif;
 }
 
-.font-serif {
-  font-family: "DM Sans", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
-}
-
-/* Cursive (Karshu) font for the main headings & couple names - Simple, clean & highly readable */
-.font-script {
-  font-family: "Dancing Script", "Playball", "Satisfy", "Marck Script", cursive !important;
-  font-weight: 600;
-  letter-spacing: 0.015em;
-}
-
-.font-cursive {
-  font-family: "Dancing Script", "Playball", "Satisfy", "Marck Script", cursive !important;
-  font-weight: 600;
-  letter-spacing: 0.015em;
-}
-
-.font-sans {
-  font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
-}
-
-/* Luxury Royal Typography */
 .font-cinzel {
-  font-family: "Cinzel", Georgia, "Times New Roman", serif !important;
+  font-family: 'Cinzel', serif;
 }
 
-.font-playfair {
-  font-family: "Playfair Display", Georgia, serif !important;
+.font-royal {
+  font-family: 'Cinzel', serif;
 }
 
-.font-cormorant {
-  font-family: "Cormorant Garamond", Georgia, serif !important;
+.font-serif-display {
+  font-family: 'Playfair Display', Georgia, serif;
 }
 
-/* Remove scrollbars cleanly */
-::-webkit-scrollbar {
-  display: none !important;
-  width: 0 !important;
-  height: 0 !important;
-}
-
-html, body {
-  -ms-overflow-style: none !important;
-  scrollbar-width: none !important;
-  overflow-x: hidden;
-  background-color: #EFE6DD;
-}
-
-/* Primary Rose & Warm Cream Theme Accents */
-.bg-wedding-cream {
-  background-color: #EFE6DD;
-}
-
-.bg-wedding-primary {
-  background-color: #A24F61;
-}
-
-.text-wedding-primary {
-  color: #A24F61;
-}
-
-.border-wedding-primary {
-  border-color: #A24F61;
-}
-
-/* Subtle Shimmer for Gold Ornaments */
-@keyframes shimmerGold {
-  0%, 100% {
-    filter: drop-shadow(0 1px 2px rgba(197, 155, 39, 0.3));
-  }
-  50% {
-    filter: drop-shadow(0 2px 6px rgba(229, 197, 104, 0.6));
-  }
-}
-
-.shimmer-gold {
-  animation: shimmerGold 4s ease-in-out infinite;
+.font-classic {
+  font-family: 'Cormorant Garamond', Georgia, serif;
 }
 
 @keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 .animate-fadeIn {
   animation: fadeIn 0.4s ease-out forwards;
 }
 
-@keyframes fadeInUp {
-  from {
+/* Fast one-by-one text entrance animation */
+@keyframes fastSlideUp {
+  0% {
     opacity: 0;
-    transform: translateY(14px);
+    transform: translateY(16px);
   }
-  to {
+  100% {
     opacity: 1;
     transform: translateY(0);
   }
 }
 
-.animate-fadeInUp {
-  animation: fadeInUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+@keyframes fastPopIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
 
-/* 3D perspective utility for envelope origami */
-.perspective-1000 {
-  perspective: 1000px;
+.anim-fast-text {
+  opacity: 0;
+  animation: fastSlideUp 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
-.rotate-x-180 {
-  transform: rotateX(180deg);
-}
-.rotate-x-0 {
-  transform: rotateX(0deg);
+
+.anim-fast-pop {
+  opacity: 0;
+  animation: fastPopIn 0.38s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 @media print {
-  body {
-    background: white !important;
-    color: black !important;
-  }
   .no-print {
     display: none !important;
-  }
-  .print-card {
-    box-shadow: none !important;
-    border: 1px solid #A24F61 !important;
-    max-width: 100% !important;
-    margin: 0 !important;
-    padding: 0 !important;
   }
 }
