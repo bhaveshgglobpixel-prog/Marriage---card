@@ -1,20 +1,48 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://ai.google.dev/static/site-assets/images/share-ais-513315318.png" />
-</div>
+# Royal Wedding Invitation — Janaki & Divyesh
 
-# Run and deploy your AI Studio app
+A luxury interactive digital wedding invitation card crafted with React, Vite, and Tailwind CSS.
 
-This contains everything you need to run your app locally.
+## Features
+- **Direct Video Opening**: Luxury envelope opening ceremony video plays directly upon entrance.
+- **Dynamic Live Countdown**: Auto-calculated countdown to December 15, 2026 based on Indian Standard Time.
+- **Scratch-to-Reveal Date**: Real gold metallic foil scratch heart revealing the auspicious wedding date with confetti.
+- **Marriage Events Itinerary**: Clean ceremony cards (Mandap Ceremony, Raas Garba, Wedding) with timings, locations, and custom artwork.
+- **Interactive Venue Map**: Direct link and address for Bapa Sitaram Palace Party Plot in Surat.
+- **RSVP & Digital Guestbook**: Guests can submit attendance and leave heartfelt wishes.
+- **Mobile-First & PWA-Ready**: Smooth animations, zero-scrollbar view, and responsive across all devices.
 
-View your app in AI Studio: https://ai.studio/apps/f69a09eb-be71-4347-9a3c-23581b056218
+## Tech Stack
+- **Framework**: React 19 + TypeScript
+- **Bundler**: Vite
+- **Styling**: Tailwind CSS
+- **Deployment**: Vercel ready (via `vercel.json`)
 
-## Run Locally
+## Quick Start
 
-**Prerequisites:**  Node.js
+### 1. Install Dependencies
+```bash
+npm install
+```
 
+### 2. Start Development Server
+```bash
+npm run dev
+```
+Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+### 3. Production Build
+```bash
+npm run build
+```
+
+## Deploy to Vercel
+
+### Option 1: Via GitHub
+1. Push this repository to GitHub.
+2. Go to [vercel.com](https://vercel.com) and click **"Add New Project"**.
+3. Select this repository and click **Deploy**.
+
+### Option 2: Via Vercel CLI
+```bash
+npx vercel
+```
