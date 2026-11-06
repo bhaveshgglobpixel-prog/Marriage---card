@@ -9,8 +9,8 @@ interface ScratchHeartCardProps {
 }
 
 export const ScratchHeartCard: React.FC<ScratchHeartCardProps> = ({
-  weddingDateText = '15 & 16 December 2026',
-  dayText = 'Monday & Tuesday',
+  weddingDateText = '16 December 2026',
+  dayText = 'Wednesday',
   subText = 'Shubh Vivah',
 }) => {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
@@ -58,365 +58,168 @@ export const ScratchHeartCard: React.FC<ScratchHeartCardProps> = ({
       // Grand celebratory explosion
       confetti({
         particleCount: 120,
-        spread: 90,
+        spread: 80,
         origin: { y: 0.6 },
-        colors: ['#A24F61', '#d4a34b', '#f9df88', '#ffffff', '#e59b2c', '#c43c5d'],
+        colors: ['#A24F61', '#c48e35', '#f3dfa2', '#ffffff', '#e5c568'],
       });
-
-      // Follow-up sparkle burst
-      setTimeout(() => {
-        try {
-          confetti({
-            particleCount: 60,
-            angle: 60,
-            spread: 55,
-            origin: { x: 0.2, y: 0.65 },
-            colors: ['#A24F61', '#f9df88', '#d4a44d'],
-          });
-          confetti({
-            particleCount: 60,
-            angle: 120,
-            spread: 55,
-            origin: { x: 0.8, y: 0.65 },
-            colors: ['#A24F61', '#f9df88', '#d4a44d'],
-          });
-        } catch {
-          // safe fallback
-        }
-      }, 250);
     } catch {
       // safe fallback
     }
   }, []);
 
-  // Natural classic symmetrical heart path helper
-  const drawHeartPath = (ctx: CanvasRenderingContext2D, w: number, h: number) => {
-    ctx.beginPath();
-    const topY = h * 0.32;
-    ctx.moveTo(w / 2, topY);
-    // Left lobe
-    ctx.bezierCurveTo(w / 2, 0.08 * h, 0.06 * w, 0.08 * h, 0.06 * w, topY);
-    // Left side down to bottom tip
-    ctx.bezierCurveTo(0.06 * w, 0.58 * h, 0.32 * w, 0.82 * h, w / 2, 0.98 * h);
-    // Right side up from bottom tip
-    ctx.bezierCurveTo(0.68 * w, 0.82 * h, 0.94 * w, 0.58 * h, 0.94 * w, topY);
-    // Right lobe
-    ctx.bezierCurveTo(0.94 * w, 0.08 * h, w / 2, 0.08 * h, w / 2, topY);
-    ctx.closePath();
-  };
-
-  // Render authentic realistic metallic gold scratch-off latex foil
-  const initCanvas = useCallback(() => {
-    const canvas = canvasRef.current;
-    if (!canvas) return;
-    const ctx = canvas.getContext('2d');
-    if (!ctx) return;
-
-    canvas.width = WIDTH;
-    canvas.height = HEIGHT;
-
-    ctx.save();
-
-    // 1. Clip exactly to classic heart shape
-    drawHeartPath(ctx, WIDTH, HEIGHT);
-    ctx.clip();
-
-    // 2. Realistic Luxury Brushed Metallic Gold & Rose Gold Foil Base
-    const foilGrad = ctx.createLinearGradient(0, 0, WIDTH, HEIGHT);
-    foilGrad.addColorStop(0, '#e8be72');
-    foilGrad.addColorStop(0.25, '#d4a44d');
-    foilGrad.addColorStop(0.5, '#f5dfa2'); // metallic specular highlight
-    foilGrad.addColorStop(0.75, '#c9963f');
-    foilGrad.addColorStop(1, '#b57f2e');
-    ctx.fillStyle = foilGrad;
-    ctx.fillRect(0, 0, WIDTH, HEIGHT);
-
-    // 3. Realistic Fine Brushed Metallic Sheen (Horizontal microscopic lines like real foil stamp)
-    ctx.fillStyle = 'rgba(255, 255, 255, 0.08)';
-    for (let y = 0; y < HEIGHT; y += 2) {
-      if (y % 4 === 0) {
-        ctx.fillRect(0, y, WIDTH, 1);
-      }
-    }
-
-    // 4. Subtle Diagonal Specular Reflection (Authentic metallic luster)
-    const shine = ctx.createLinearGradient(0, 0, WIDTH, HEIGHT);
-    shine.addColorStop(0, 'rgba(255, 255, 255, 0)');
-    shine.addColorStop(0.42, 'rgba(255, 255, 255, 0.12)');
-    shine.addColorStop(0.5, 'rgba(255, 255, 255, 0.38)');
-    shine.addColorStop(0.58, 'rgba(255, 255, 255, 0.12)');
-    shine.addColorStop(1, 'rgba(255, 255, 255, 0)');
-    ctx.fillStyle = shine;
-    ctx.fillRect(0, 0, WIDTH, HEIGHT);
-
-    // 5. Embossed Inner Filigree Border on the foil
-    ctx.strokeStyle = 'rgba(255, 255, 255, 0.45)';
-    ctx.lineWidth = 1.8;
-    ctx.save();
-    ctx.scale(0.92, 0.92);
-    ctx.translate(WIDTH * 0.043, HEIGHT * 0.043);
-    drawHeartPath(ctx, WIDTH, HEIGHT);
-    ctx.stroke();
-    ctx.restore();
-
-    // 6. Realistic Embossed Text on Foil: Royal Serif & Positioned Lower
-    ctx.save();
-    ctx.textAlign = 'center';
-    ctx.textBaseline = 'middle';
-
-    // Embossed shadow
-    ctx.fillStyle = 'rgba(110, 70, 18, 0.6)';
-    ctx.font = 'bold 11px "Cinzel", "DM Sans", serif';
-    ctx.fillText('✦ SCRATCH TO REVEAL ✦', WIDTH / 2, HEIGHT * 0.54 + 1);
-
-    // Embossed highlight
-    ctx.fillStyle = 'rgba(255, 255, 255, 0.95)';
-    ctx.fillText('✦ SCRATCH TO REVEAL ✦', WIDTH / 2, HEIGHT * 0.54);
-
-    // Subtext on foil
-    ctx.font = '600 9.5px "Inter", system-ui, sans-serif';
-    ctx.fillStyle = 'rgba(92, 56, 12, 0.8)';
-    ctx.fillText('Touch & rub to reveal date', WIDTH / 2, HEIGHT * 0.64);
-
-    ctx.restore();
-
-    ctx.restore();
-  }, []);
-
-  useEffect(() => {
-    initCanvas();
-  }, [initCanvas]);
-
-  // Track scratched area percentage
-  const checkScratchPercentage = useCallback(() => {
-    const canvas = canvasRef.current;
-    if (!canvas || isRevealedRef.current) return;
-    const ctx = canvas.getContext('2d');
-    if (!ctx) return;
-
-    try {
-      // Sample a grid in the center heart region
-      const sampleW = 100;
-      const sampleH = 80;
-      const startX = Math.floor((WIDTH - sampleW) / 2);
-      const startY = Math.floor(HEIGHT * 0.35);
-
-      const imgData = ctx.getImageData(startX, startY, sampleW, sampleH);
-      const pixels = imgData.data;
-      let transparentCount = 0;
-      const totalPixels = pixels.length / 4;
-
-      for (let i = 3; i < pixels.length; i += 4) {
-        if (pixels[i] < 40) {
-          transparentCount++;
-        }
-      }
-
-      const ratio = transparentCount / totalPixels;
-      setScratchedPct(Math.round(ratio * 100));
-
-      // Once 35% of the central region is scratched, smoothly complete reveal
-      if (ratio > 0.35) {
-        triggerCelebration();
-      }
-    } catch {
-      // safe fallback
-    }
-  }, [triggerCelebration]);
-
-  // Scratch action
-  const scratchAt = useCallback(
-    (clientX: number, clientY: number) => {
-      const canvas = canvasRef.current;
-      if (!canvas || isRevealedRef.current) return;
-      const ctx = canvas.getContext('2d');
-      if (!ctx) return;
-
-      const rect = canvas.getBoundingClientRect();
-      if (!rect.width || !rect.height) return;
-      const x = (clientX - rect.left) * (canvas.width / rect.width);
-      const y = (clientY - rect.top) * (canvas.height / rect.height);
-
-      if (!hasStartedScratching) setHasStartedScratching(true);
-
-      ctx.save();
-      // 'destination-out' erases the foil cleanly like a real coin scratching latex
-      ctx.globalCompositeOperation = 'destination-out';
-
-      // Realistic soft scratch brush
-      const brushRadius = 24;
-      const grad = ctx.createRadialGradient(x, y, brushRadius * 0.4, x, y, brushRadius);
-      grad.addColorStop(0, 'rgba(0, 0, 0, 1)');
-      grad.addColorStop(0.7, 'rgba(0, 0, 0, 0.95)');
-      grad.addColorStop(1, 'rgba(0, 0, 0, 0)');
-
-      ctx.fillStyle = grad;
-      ctx.beginPath();
-      ctx.arc(x, y, brushRadius, 0, Math.PI * 2);
-      ctx.fill();
-
-      // Add a couple of scratch texture scratches
-      for (let s = 0; s < 2; s++) {
-        const ox = (Math.random() - 0.5) * 16;
-        const oy = (Math.random() - 0.5) * 16;
-        ctx.beginPath();
-        ctx.arc(x + ox, y + oy, brushRadius * 0.65, 0, Math.PI * 2);
-        ctx.fill();
-      }
-
-      ctx.restore();
-      checkScratchPercentage();
-    },
-    [checkScratchPercentage, hasStartedScratching]
-  );
-
-
-
-  // Automatic scratch detection:
-  // Strictly triggers ONLY when scrolling brings the heart card to the top of the viewport
-  // ("scroling me top pe pahuche tab auto ho jana chahea, baki mannual ok")
-  // In the middle or bottom of the screen, it stays completely manual!
+  // Auto-reveal when card scrolls to top / enters viewport if user does not scratch
   useEffect(() => {
     if (isRevealed) return;
-    const cardEl = cardWrapperRef.current;
-    if (!cardEl) return;
+    const element = containerRef.current;
+    if (!element) return;
 
-    const checkTopPosition = () => {
-      if (triggeredRef.current || isRevealedRef.current) return;
-      const card = cardWrapperRef.current;
-      if (!card) return;
+    let autoTimer: ReturnType<typeof setTimeout> | null = null;
 
-      const rect = card.getBoundingClientRect();
-
-      // STRICTLY TOP OF SCREEN:
-      // Only trigger when the top of the heart card reaches the very top of the viewport (rect.top <= 50px).
-      // Center or middle of screen (rect.top > 50px) will NEVER trigger automatically.
-      if (rect.top <= 50 && rect.bottom >= 100) {
-        triggeredRef.current = true;
-        triggerCelebration();
-      }
-    };
-
-    // Check initially in case page loaded scrolled right at the top of the card
-    checkTopPosition();
-
-    // Listen on window and document scroll/touchmove
-    window.addEventListener('scroll', checkTopPosition, { passive: true });
-    window.addEventListener('touchmove', checkTopPosition, { passive: true });
-    window.addEventListener('resize', checkTopPosition, { passive: true });
-    document.addEventListener('scroll', checkTopPosition, { passive: true });
-
-    // IntersectionObserver strictly targeting the top 10% of viewport
-    let observer: IntersectionObserver | null = null;
-    if (typeof IntersectionObserver !== 'undefined') {
-      observer = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              checkTopPosition();
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting && !isRevealedRef.current && !triggeredRef.current) {
+            // If user scrolled to the scratch card and hasn't scratched it, auto reveal after 800ms
+            if (!autoTimer) {
+              autoTimer = setTimeout(() => {
+                if (!isRevealedRef.current && !triggeredRef.current) {
+                  triggeredRef.current = true;
+                  triggerCelebration();
+                }
+              }, 800);
             }
-          });
-        },
-        {
-          rootMargin: '0px 0px -90% 0px',
-          threshold: [0, 0.5, 1],
-        }
-      );
-      observer.observe(cardEl);
-    }
+          }
+        });
+      },
+      {
+        threshold: 0.35,
+        rootMargin: '0px 0px -40px 0px',
+      }
+    );
+
+    observer.observe(element);
 
     return () => {
-      window.removeEventListener('scroll', checkTopPosition);
-      window.removeEventListener('touchmove', checkTopPosition);
-      window.removeEventListener('resize', checkTopPosition);
-      document.removeEventListener('scroll', checkTopPosition);
-      if (observer) {
-        observer.disconnect();
-      }
-      if (animFrameRef.current) {
-        cancelAnimationFrame(animFrameRef.current);
-      }
+      observer.disconnect();
+      if (autoTimer) clearTimeout(autoTimer);
     };
   }, [isRevealed, triggerCelebration]);
 
-  // Global touch/mouse up release listener to prevent stuck scratching
+  // Initialize Canvas
   useEffect(() => {
-    const handleGlobalEnd = () => setIsScratching(false);
-    window.addEventListener('mouseup', handleGlobalEnd);
-    window.addEventListener('touchend', handleGlobalEnd);
-    return () => {
-      window.removeEventListener('mouseup', handleGlobalEnd);
-      window.removeEventListener('touchend', handleGlobalEnd);
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+
+    canvas.width = WIDTH;
+    canvas.height = HEIGHT;
+    const ctx = canvas.getContext('2d');
+    if (!ctx) return;
+
+    // Heart Path
+    const drawHeartPath = () => {
+      ctx.beginPath();
+      // SVG path coordinates scaled to 260x240:
+      // M130 76.8 C130 19.2 15.6 19.2 15.6 76.8 C15.6 139.2 83.2 196.8 130 235.2 C176.8 196.8 244.4 139.2 244.4 76.8 C244.4 19.2 130 19.2 130 76.8 Z
+      ctx.moveTo(130, 76.8);
+      ctx.bezierCurveTo(130, 19.2, 15.6, 19.2, 15.6, 76.8);
+      ctx.bezierCurveTo(15.6, 139.2, 83.2, 196.8, 130, 235.2);
+      ctx.bezierCurveTo(176.8, 196.8, 244.4, 139.2, 244.4, 76.8);
+      ctx.bezierCurveTo(244.4, 19.2, 130, 19.2, 130, 76.8);
+      ctx.closePath();
     };
+
+    ctx.save();
+    drawHeartPath();
+    ctx.clip();
+
+    // Metallic Gold Foil Gradient
+    const goldGrad = ctx.createLinearGradient(0, 0, WIDTH, HEIGHT);
+    goldGrad.addColorStop(0, '#e8be66');
+    goldGrad.addColorStop(0.25, '#fff2b2');
+    goldGrad.addColorStop(0.5, '#c99335');
+    goldGrad.addColorStop(0.75, '#fae19c');
+    goldGrad.addColorStop(1, '#ab7722');
+    ctx.fillStyle = goldGrad;
+    ctx.fillRect(0, 0, WIDTH, HEIGHT);
+
+    // Text on foil
+    ctx.fillStyle = '#6b450c';
+    ctx.font = 'bold 12px "Plus Jakarta Sans", sans-serif';
+    ctx.textAlign = 'center';
+    ctx.fillText('✨ SCRATCH HERE ✨', WIDTH / 2, HEIGHT / 2 + 10);
+    ctx.font = 'italic 11px "Cormorant Garamond", serif';
+    ctx.fillText('Tap or rub to reveal the date', WIDTH / 2, HEIGHT / 2 + 28);
+
+    ctx.restore();
   }, []);
 
-  // Cancel any auto-scratch on user interaction
-  const cancelAutoScratchOnUserTouch = () => {
-    hasStartedScratchingRef.current = true;
-    if (animFrameRef.current) {
-      cancelAnimationFrame(animFrameRef.current);
-      animFrameRef.current = null;
+  // Scratch handler
+  const scratch = (clientX: number, clientY: number) => {
+    if (isRevealedRef.current) return;
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+
+    const rect = canvas.getBoundingClientRect();
+    const x = clientX - rect.left;
+    const y = clientY - rect.top;
+
+    const ctx = canvas.getContext('2d');
+    if (!ctx) return;
+
+    ctx.globalCompositeOperation = 'destination-out';
+    ctx.beginPath();
+    ctx.arc(x, y, 24, 0, Math.PI * 2);
+    ctx.fill();
+
+    if (!hasStartedScratchingRef.current) {
+      hasStartedScratchingRef.current = true;
+      setHasStartedScratching(true);
     }
-    setIsAutoScratching(false);
+
+    setScratchedPct((prev) => {
+      const next = prev + 12;
+      if (next >= 40 && !triggeredRef.current) {
+        triggeredRef.current = true;
+        triggerCelebration();
+      }
+      return next;
+    });
   };
 
-  // Mouse Handlers
-  const handleMouseDown = (e: React.MouseEvent<HTMLCanvasElement>) => {
-    cancelAutoScratchOnUserTouch();
-    setIsScratching(true);
-    scratchAt(e.clientX, e.clientY);
-  };
-
-  const handleMouseMove = (e: React.MouseEvent<HTMLCanvasElement>) => {
-    if (!isScratching) return;
-    scratchAt(e.clientX, e.clientY);
-  };
-
+  const handleMouseDown = () => setIsScratching(true);
   const handleMouseUp = () => setIsScratching(false);
+  const handleMouseMove = (e: React.MouseEvent) => {
+    if (!isScratching) return;
+    scratch(e.clientX, e.clientY);
+  };
 
-  // Touch Handlers for Mobile Phones & Tablets
-  const handleTouchStart = (e: React.TouchEvent<HTMLCanvasElement>) => {
-    cancelAutoScratchOnUserTouch();
-    setIsScratching(true);
+  const handleTouchStart = () => setIsScratching(true);
+  const handleTouchEnd = () => setIsScratching(false);
+  const handleTouchMove = (e: React.TouchEvent) => {
     if (e.touches[0]) {
-      scratchAt(e.touches[0].clientX, e.touches[0].clientY);
+      scratch(e.touches[0].clientX, e.touches[0].clientY);
     }
   };
-
-  const handleTouchMove = (e: React.TouchEvent<HTMLCanvasElement>) => {
-    if (!isScratching || !e.touches[0]) return;
-    scratchAt(e.touches[0].clientX, e.touches[0].clientY);
-  };
-
-  const handleTouchEnd = () => setIsScratching(false);
 
   return (
-    <div ref={containerRef} className="py-9 text-center select-none">
-      {/* Kicker */}
-      <span className="text-[10px] tracking-[0.25em] font-primary uppercase text-[#A24F61] font-bold block">
-        AUSPICIOUS DATE REVEAL
-      </span>
+    <div ref={containerRef} className="py-4 text-center font-description">
+      <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#faeff2] text-[#A24F61] text-[10px] tracking-[0.25em] font-primary uppercase font-bold mb-3 shadow-xs">
+        <Heart className="w-3 h-3 fill-[#A24F61] text-[#A24F61]" />
+        <span>Save The Date</span>
+      </div>
 
-      {/* Main Cursive Title - Simple, clean, readable Karshu font */}
-      <h3 className="font-script text-5xl sm:text-6xl text-[#A24F61] font-normal my-1 tracking-wide">
+      <h3 className="font-script text-4xl sm:text-5xl text-[#A24F61] font-normal my-1">
         Scratch to Reveal
       </h3>
 
-      {/* Heart divider */}
-      <div className="flex items-center justify-center gap-2.5 my-2">
-        <span className="w-12 h-[1px] bg-[#eed5db]" />
-        <Heart className="w-3.5 h-3.5 fill-[#A24F61] text-[#A24F61]" />
-        <span className="w-12 h-[1px] bg-[#eed5db]" />
-      </div>
-
-      <p className="font-description text-xs text-[#7d3d4b] mb-5">
-        Rub and scratch the royal heart with your finger to uncover the wedding date
+      <p className="font-description text-xs text-[#7d3d4b] max-w-[280px] mx-auto mb-4 leading-relaxed">
+        Rub the royal gold heart or tap below to unveil the wedding date
       </p>
 
       {/* ================= PHYSICAL SCRATCH-OFF CARD CONTAINER ================= */}
       <div ref={cardWrapperRef} className="relative mx-auto w-[260px] h-[240px] flex items-center justify-center select-none group">
         
-        {/* UNDERNEATH LAYER: Only the Wedding Date (15 & 16 December 2026) positioned lower with refined royal typography */}
+        {/* UNDERNEATH LAYER: Only the Wedding Date (16 December 2026) positioned lower with refined royal typography */}
         <div
           className="absolute inset-0 bg-[#fffdfa] flex flex-col items-center justify-start pt-[82px] pb-3 px-3 text-center shadow-md border-2 border-[#e8ccd3] transition-all select-none"
           style={{
@@ -435,11 +238,9 @@ export const ScratchHeartCard: React.FC<ScratchHeartCardProps> = ({
               <span className="w-3 h-[1px] bg-gradient-to-l from-transparent to-[#c48e35]" />
             </div>
 
-            {/* Date Numbers with Elegant Italic Ampersand */}
-            <div className="flex items-baseline justify-center font-cinzel font-bold text-[#A24F61] leading-none drop-shadow-[0_1px_1px_rgba(162,79,97,0.18)] my-0.5">
-              <span className="text-[38px] sm:text-[42px] tracking-tight">15</span>
-              <span className="font-serif italic font-normal text-2xl sm:text-3xl text-[#c48e35] mx-1.5 opacity-90">&amp;</span>
-              <span className="text-[38px] sm:text-[42px] tracking-tight">16</span>
+            {/* Date Number: 16 (Auspicious Wedding Day) */}
+            <div className="flex items-baseline justify-center font-cinzel font-bold text-[#A24F61] leading-none drop-shadow-[0_1px_1px_rgba(162,79,97,0.18)] my-1">
+              <span className="text-[52px] sm:text-[56px] tracking-tight">16</span>
             </div>
 
             {/* Month with Regal Letter Spacing */}
@@ -512,18 +313,11 @@ export const ScratchHeartCard: React.FC<ScratchHeartCardProps> = ({
           />
         </svg>
 
-        {/* Gentle Pulsing Hand Touch Hint / Auto Status */}
+        {/* Gentle Pulsing Hand Touch Hint */}
         {!hasStartedScratching && !isRevealed && !isAutoScratching && (
           <div className="absolute -bottom-3 z-30 pointer-events-none animate-bounce flex items-center gap-1.5 py-1 px-3 rounded-full bg-[#A24F61] text-white text-[10px] font-primary font-bold shadow-lg border border-white">
             <Hand className="w-3 h-3 text-[#fde68a]" />
-            <span>Rub to scratch · Auto-reveals at top</span>
-          </div>
-        )}
-
-        {isAutoScratching && !isRevealed && (
-          <div className="absolute -bottom-3 z-30 pointer-events-none flex items-center gap-1.5 py-1 px-3.5 rounded-full bg-[#A24F61] text-white text-[10px] font-primary font-bold shadow-lg border border-white animate-pulse">
-            <Sparkles className="w-3.5 h-3.5 text-[#fde68a] animate-spin" />
-            <span>✨ Auto-scratching &amp; revealing... ✨</span>
+            <span>Rub or tap to scratch &amp; reveal</span>
           </div>
         )}
       </div>
@@ -533,7 +327,7 @@ export const ScratchHeartCard: React.FC<ScratchHeartCardProps> = ({
         {isRevealed ? (
           <div className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-[#A24F61] text-white text-xs font-primary font-bold shadow-md animate-fadeIn">
             <Sparkles className="w-3.5 h-3.5 text-[#fde68a]" />
-            <span>Date Revealed: 15 &amp; 16 December 2026!</span>
+            <span>Date Revealed: 16 December 2026!</span>
           </div>
         ) : (
           <button

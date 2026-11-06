@@ -1,131 +1,64 @@
-import React, { useState } from 'react';
-import { MapPin, Navigation, Copy, Check, ExternalLink } from 'lucide-react';
+import React from 'react';
+import { MapPin, Navigation, ExternalLink } from 'lucide-react';
 
 interface IndianVenueMapProps {
-  venueName?: string;
-  address?: string;
-  city?: string;
-  mapsUrl?: string;
+  venueName: string;
+  address: string;
+  city: string;
+  mapsUrl: string;
 }
 
 export const IndianVenueMap: React.FC<IndianVenueMapProps> = ({
-  venueName = 'Bapa Sitaram Palace Party Plot',
-  address = 'Bapa Sitaram Chowk, New Varachha',
-  city = 'Surat, Gujarat 395006, India',
-  mapsUrl = 'https://www.google.com/maps/place/Bapa+Sitaram+Palace+Party+Plot/@21.2139181,72.9186267,17z/data=!3m1!4b1!4m6!3m5!1s0x3be04569fa306223:0x11723511c5607f10!8m2!3d21.2139181!4d72.9186267!16s%2Fg%2F11ylpm5z8v?entry=ttu&g_ep=EgoyMDI2MTAwNy4wIKXMDSoASAFQAw%3D%3D',
+  venueName,
+  address,
+  city,
+  mapsUrl,
 }) => {
-  const [copied, setCopied] = useState(false);
-
-  const copyTextToClipboard = async (text: string) => {
-    try {
-      if (navigator?.clipboard?.writeText) {
-        await navigator.clipboard.writeText(text);
-        return true;
-      }
-    } catch {
-      // fallback below
-    }
-    try {
-      const textarea = document.createElement('textarea');
-      textarea.value = text;
-      textarea.style.position = 'fixed';
-      textarea.style.opacity = '0';
-      document.body.appendChild(textarea);
-      textarea.select();
-      document.execCommand('copy');
-      document.body.removeChild(textarea);
-      return true;
-    } catch {
-      return false;
-    }
-  };
-
-  const handleCopy = async () => {
-    await copyTextToClipboard(`${venueName}, ${address}, ${city}`);
-    setCopied(true);
-    setTimeout(() => setCopied(false), 2500);
-  };
-
   return (
-    <div className="bg-[#A24F61] text-white py-9 px-6 text-center shadow-inner border-t border-[#70122b]/30">
-      <div className="w-10 h-10 mx-auto text-white flex items-center justify-center mb-1">
-        <MapPin className="w-8 h-8 stroke-[1.5] text-[#fce4ea]" />
+    <div className="py-10 px-4 sm:px-6 bg-[#fbf7f4] text-center border-t border-[#e8dcd0]">
+      <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#faeff2] text-[#A24F61] text-[10px] tracking-[0.25em] font-primary uppercase font-bold mb-2 shadow-xs">
+        <MapPin className="w-3 h-3 text-[#A24F61]" />
+        <span>Location &amp; Directions</span>
       </div>
 
-      <h3 className="font-script text-5xl sm:text-6xl text-white font-normal tracking-wide my-1">
-        Venue &amp; Location
+      <h3 className="font-script text-5xl sm:text-6xl text-[#A24F61] font-normal my-2 tracking-wide">
+        The Wedding Venue
       </h3>
 
-      <p className="font-description text-xs text-[#fae8ec] max-w-[300px] mx-auto mt-2 leading-relaxed">
-        We look forward to welcoming you with warmth and love. Find the wedding location below:
-      </p>
+      <div className="max-w-[400px] mx-auto mt-4 bg-white rounded-3xl p-6 shadow-[0_6px_25px_rgba(162,79,97,0.08)] border border-[#eed5db]">
+        <h4 className="font-serif-display text-lg sm:text-xl font-bold text-[#2d1219]">
+          {venueName}
+        </h4>
+        <p className="font-description text-xs sm:text-sm text-[#6e3745] mt-1 leading-relaxed">
+          {address}, {city}
+        </p>
 
-      {/* Embedded Map Container */}
-      <div className="mt-5 rounded-2xl overflow-hidden shadow-lg border-2 border-[#c4687d] bg-[#4a1824] relative group">
-        <iframe
-          title="Wedding Venue Google Map"
-          src="https://maps.google.com/maps?q=Bapa+Sitaram+Palace+Party+Plot+Surat@21.2139181,72.9186267&hl=en&z=17&output=embed"
-          width="100%"
-          height="220"
-          style={{ border: 0 }}
-          loading="lazy"
-          referrerPolicy="no-referrer-when-downgrade"
-          className="w-full h-52 object-cover filter contrast-[1.05]"
-        />
-
-        {/* Floating location tag */}
-        <div className="absolute bottom-2.5 left-2.5 right-2.5 bg-[#3a131c]/90 backdrop-blur-md px-3.5 py-2 rounded-xl text-left border border-white/20 flex items-center justify-between">
-          <div>
-            <h5 className="font-primary text-xs font-bold text-white truncate max-w-[200px]">
-              {venueName}
-            </h5>
-            <p className="font-description text-[10px] text-[#fae8ec] truncate max-w-[200px]">
-              {city}
-            </p>
-          </div>
-          <a
-            href={mapsUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="p-1.5 rounded-lg bg-[#A24F61] text-white hover:bg-[#853444] transition-colors shrink-0"
-            title="Open in Google Maps"
-          >
-            <ExternalLink className="w-3.5 h-3.5" />
-          </a>
+        {/* Embedded map iframe */}
+        <div className="mt-4 rounded-2xl overflow-hidden aspect-[16/10] border border-[#f0d8de] relative shadow-inner bg-[#f7f0eb]">
+          <iframe
+            title="Venue Location Map"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3719.5398288593587!2d72.91605177589998!3d21.21392308048216!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be04569fa306223%3A0x11723511c5607f10!2sBapa%20Sitaram%20Palace%20Party%20Plot!5e0!3m2!1sen!2sin!4v1729835841234!5m2!1sen!2sin"
+            width="100%"
+            height="100%"
+            style={{ border: 0 }}
+            allowFullScreen={false}
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+          />
         </div>
-      </div>
 
-      {/* Action Buttons */}
-      <div className="mt-5 flex justify-center max-w-[280px] mx-auto">
+        {/* Action Button */}
         <a
           href={mapsUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="w-full py-2.5 px-6 rounded-full bg-white hover:bg-[#faeff2] text-[#A24F61] font-primary font-bold text-xs shadow-md transition-all flex items-center justify-center gap-2 active:scale-95"
+          className="mt-4 inline-flex items-center justify-center gap-2 w-full py-2.5 px-4 rounded-full bg-[#A24F61] hover:bg-[#8e3f51] text-white text-xs font-primary font-bold shadow-sm transition-all active:scale-98 cursor-pointer"
         >
-          <Navigation className="w-4 h-4 fill-[#A24F61]" />
-          <span>Get Directions</span>
+          <Navigation className="w-3.5 h-3.5" />
+          <span>Open in Google Maps</span>
+          <ExternalLink className="w-3 h-3 opacity-80" />
         </a>
       </div>
-
-      {/* Copy full address */}
-      <button
-        type="button"
-        onClick={handleCopy}
-        className="mt-3 text-[11px] text-[#fae8ec] hover:text-white underline underline-offset-4 flex items-center justify-center gap-1 mx-auto transition-colors font-description cursor-pointer"
-      >
-        {copied ? (
-          <>
-            <Check className="w-3 h-3 text-[#fcd4dc]" />
-            <span>Address copied to clipboard</span>
-          </>
-        ) : (
-          <>
-            <Copy className="w-3 h-3" />
-            <span>Copy full venue address</span>
-          </>
-        )}
-      </button>
     </div>
   );
 };
