@@ -198,45 +198,45 @@ export const ScratchHeartCard: React.FC<ScratchHeartCardProps> = ({
         Scratch to Reveal
       </h3>
 
-      <p className="font-description text-xs text-[#7d3d4b] max-w-[280px] mx-auto mb-4 leading-relaxed">
-        Rub the royal gold heart or tap below to unveil the wedding date
+      <p className="font-description text-xs text-[#7d3d4b] max-w-[320px] mx-auto mb-4 leading-relaxed">
+        Rub the royal gold heart or tap below to unveil<br />the wedding date
       </p>
 
       {/* ================= PHYSICAL SCRATCH-OFF CARD CONTAINER ================= */}
       <div ref={cardWrapperRef} className="relative mx-auto w-[260px] h-[240px] flex items-center justify-center select-none group">
         
-        {/* UNDERNEATH LAYER: Only the Wedding Date (16 December 2026) positioned lower with refined royal typography */}
+        {/* UNDERNEATH LAYER: Only the Wedding Date (16 December 2026) perfectly centered within the heart cavity */}
         <div
-          className="absolute inset-0 bg-[#fffdfa] flex flex-col items-center justify-start pt-[82px] pb-3 px-3 text-center shadow-md border-2 border-[#e8ccd3] transition-all select-none"
+          className="absolute inset-0 bg-[#fffdfa] shadow-md border-2 border-[#e8ccd3] transition-all select-none"
           style={{
             clipPath:
               'path("M130 76.8 C130 19.2 15.6 19.2 15.6 76.8 C15.6 139.2 83.2 196.8 130 235.2 C176.8 196.8 244.4 139.2 244.4 76.8 C244.4 19.2 130 19.2 130 76.8 Z")',
           }}
         >
-          {/* Exquisite Royal Typography for the Auspicious Date */}
-          <div className="flex flex-col items-center justify-center z-10 max-w-[200px] mx-auto">
+          {/* Inner Golden Area: Lifted slightly higher into the wide portion of the heart cavity so text never touches the converging border lines */}
+          <div className="absolute inset-x-0 top-[58px] bottom-[34px] flex flex-col items-center justify-center text-center px-4">
             {/* Shubh Vivah with golden decorative accents */}
             <div className="flex items-center justify-center gap-1.5 mb-1">
-              <span className="w-3 h-[1px] bg-gradient-to-r from-transparent to-[#c48e35]" />
-              <span className="text-[10px] tracking-[0.28em] font-cinzel uppercase font-bold text-[#b57d2a]">
+              <span className="w-3 h-[1px] bg-[#c48e35]" />
+              <span className="text-[9.5px] sm:text-[10px] tracking-[0.24em] font-cinzel uppercase font-bold text-[#b57d2a]">
                 SHUBH VIVAH
               </span>
-              <span className="w-3 h-[1px] bg-gradient-to-l from-transparent to-[#c48e35]" />
+              <span className="w-3 h-[1px] bg-[#c48e35]" />
             </div>
 
             {/* Date Number: 16 (Auspicious Wedding Day) */}
-            <div className="flex items-baseline justify-center font-cinzel font-bold text-[#A24F61] leading-none drop-shadow-[0_1px_1px_rgba(162,79,97,0.18)] my-1">
-              <span className="text-[52px] sm:text-[56px] tracking-tight">16</span>
+            <div className="flex items-baseline justify-center font-cinzel font-bold text-[#A24F61] leading-none drop-shadow-[0_1px_1px_rgba(162,79,97,0.18)] my-0.5">
+              <span className="text-[42px] sm:text-[45px] tracking-tight">16</span>
             </div>
 
-            {/* Month with Regal Letter Spacing */}
-            <span className="font-cinzel text-xs sm:text-sm font-bold uppercase tracking-[0.38em] text-[#2d1219] mt-1 block">
+            {/* Month with Regal Letter Spacing - Safe within stitch borders */}
+            <span className="font-cinzel text-[10px] sm:text-[10.5px] font-bold uppercase tracking-[0.22em] text-[#1e293b] mt-0.5 block">
               DECEMBER
             </span>
 
-            {/* Auspicious Year: Only 2026 without side dashes */}
-            <div className="flex items-center justify-center mt-1">
-              <span className="font-cinzel text-xs sm:text-[13px] font-bold text-[#b57d2a] tracking-[0.28em]">
+            {/* Auspicious Year: Only 2026 */}
+            <div className="flex items-center justify-center mt-0.5">
+              <span className="font-cinzel text-[10px] sm:text-[10.5px] font-bold text-[#b57d2a] tracking-[0.22em]">
                 2026
               </span>
             </div>

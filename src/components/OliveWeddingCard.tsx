@@ -65,11 +65,14 @@ export const OliveWeddingCard: React.FC<OliveWeddingCardProps> = ({
     {
       id: 'garba',
       title: 'Raas Garba',
-      subtitle: 'A Special Dinner Invitation',
       date: '15 December, Tuesday',
-      dayTime: '6:00 PM Onwards',
-      location: 'Together as a Couple',
-      description: 'A Heartfelt Invitation to Join Us.',
+      dayTime: '6:00 PM',
+      specialLine: 'A Special Dinner Invitation',
+      descriptionLines: [
+        'Together as a Couple',
+        'A Heartfelt Invitation to Join Us.',
+      ],
+      location: 'Bapa Sitaram Palace Party Plot',
       imageUrl: '/assets/aistudio/Image__8__1_49dbf85c.jpg',
       badge: 'Raas Garba',
     },
@@ -77,9 +80,13 @@ export const OliveWeddingCard: React.FC<OliveWeddingCardProps> = ({
       id: 'wedding',
       title: 'Wedding',
       date: '16 December, Wednesday',
-      dayTime: '10:00 PM',
+      dayTime: '4:00 PM',
+      specialLine: 'A Special Dinner Invitation',
+      descriptionLines: [
+        'Together as a Couple',
+        'A Heartfelt Invitation to Join Us.',
+      ],
       location: 'Bapa Sitaram Palace Party Plot',
-      description: 'Sacred pheras around the holy agni, auspicious Hast Melap, and eternal vows of togetherness.',
       imageUrl: '/assets/aistudio/Image__4__1_81978a19.jpg',
       badge: 'Shubh Vivah',
     },
@@ -132,7 +139,7 @@ export const OliveWeddingCard: React.FC<OliveWeddingCardProps> = ({
                 The Beloved Son of
               </span>
               <span className="text-xs sm:text-[13px] font-bold text-[#2d1219] block mt-0.5 drop-shadow-[0_1px_1px_rgba(255,255,255,0.9)]">
-                Mrs. Manishaben &amp; Mr. Mansukhbhai maganbhai Kotadia
+                Mrs. Manishaben &amp; Mr. Mansukhbhai Maganbhai Kotadia
               </span>
               <span className="text-[11px] sm:text-xs text-[#6e3745] font-semibold italic block mt-0.5 drop-shadow-[0_1px_1px_rgba(255,255,255,0.9)]">
                 Originally from Tori(Rampur) | Currently Residing in Surat
@@ -158,8 +165,9 @@ export const OliveWeddingCard: React.FC<OliveWeddingCardProps> = ({
       {/* ================= SECTION 2: CELEBRATION BANNER & COUNTDOWN (PRIMARY ROYAL ROSE PATTI) ================= */}
       <ScrollReveal direction="up">
         <div className="bg-[#A24F61] text-white py-8 px-6 text-center shadow-inner border-y border-[#8e3f51]">
-          <p className="font-description text-xs text-[#fae8ec] max-w-[320px] mx-auto leading-relaxed">
-            With the divine blessings of the Almighty and the blessings of our beloved parents and elders, we joyfully invite you to celebrate our wedding.
+          <p className="font-description text-xs sm:text-[13px] text-[#fae8ec] max-w-[420px] mx-auto leading-relaxed">
+            <span className="block">With the divine blessings of the Almighty and the blessings of our beloved parents and elders,</span>
+            <span className="block mt-0.5">we joyfully invite you to celebrate our wedding.</span>
           </p>
 
           {/* Main Heading Couple Names in simple, readable cursive (karshu) */}
@@ -228,8 +236,9 @@ export const OliveWeddingCard: React.FC<OliveWeddingCardProps> = ({
           <h3 className="font-script text-5xl sm:text-6xl text-[#A24F61] font-normal my-2 tracking-wide">
             Marriage Events
           </h3>
-          <p className="font-description text-xs text-[#7d3d4b] max-w-[290px] mx-auto mb-7 leading-relaxed">
-            Join us in celebrated traditions, vibrant colors, and sacred rituals
+          <p className="font-description text-xs text-[#7d3d4b] max-w-[340px] mx-auto mb-7 leading-relaxed">
+            <span className="block">Join us in celebrated traditions,</span>
+            <span className="block mt-0.5">vibrant colors, and sacred rituals</span>
           </p>
         </ScrollReveal>
 
@@ -242,44 +251,58 @@ export const OliveWeddingCard: React.FC<OliveWeddingCardProps> = ({
                 <div
                   className="bg-white rounded-3xl p-5 sm:p-6 shadow-[0_6px_25px_rgba(162,79,97,0.08)] border border-[#eed5db] transition-all hover:border-[#dfb9c3]"
                 >
-                  {/* TOP: Script font ceremony title - Simple, clean & readable */}
+                  {/* 1. Ceremony Title */}
                   <h4 className="font-script text-4xl sm:text-5xl text-[#A24F61] font-normal leading-tight tracking-wide">
                     {evt.title}
                   </h4>
 
-                  {/* Subtitle when present (e.g. A Special Dinner Invitation) */}
-                  {'subtitle' in evt && evt.subtitle && (
-                    <div className="mt-1">
-                      <span className="font-primary text-[11px] sm:text-xs font-bold text-[#b57d2a] tracking-[0.18em] uppercase">
-                        {evt.subtitle}
-                      </span>
-                    </div>
-                  )}
-
-                  {/* DATE & TIME (Under title as in reference image) */}
-                  <div className="mt-2.5 flex flex-col items-center justify-center gap-1">
+                  {/* 2. Date */}
+                  <div className="mt-2.5">
                     <span className="font-primary text-[11px] sm:text-xs font-bold tracking-[0.24em] uppercase text-[#2d1219]">
                       {evt.date}
                     </span>
+                  </div>
 
+                  {/* 3. Time */}
+                  <div className="mt-1">
                     <div className="inline-flex items-center gap-1.5 px-3 py-0.5 rounded-full bg-[#faeff2] text-[#A24F61] text-[11px] font-primary font-bold border border-[#f0d8de]">
                       <Clock className="w-3 h-3 stroke-[2]" />
                       <span>{evt.dayTime}</span>
                     </div>
-
-                    {/* Location Line */}
-                    <div className="flex items-center justify-center gap-1.5 text-[11px] font-description text-[#7d3d4b] mt-1">
-                      <MapPin className="w-3 h-3 text-[#A24F61] shrink-0" />
-                      <span className="font-medium">{evt.location}</span>
-                    </div>
                   </div>
 
-                  {/* DESCRIPTION FROM CEREMONY DETAILS */}
-                  <p className="font-description text-xs text-[#6e3745] max-w-[320px] mx-auto mt-2.5 leading-relaxed">
-                    {evt.description}
-                  </p>
+                  {/* 4. Special Line (A Special Dinner Invitation) */}
+                  {'specialLine' in evt && evt.specialLine && (
+                    <div className="mt-2.5">
+                      <span className="font-primary text-[11px] sm:text-xs font-bold text-[#b57d2a] tracking-[0.18em] uppercase">
+                        {evt.specialLine}
+                      </span>
+                    </div>
+                  )}
 
-                  {/* UNDERNEATH: Royal Couple Mandap Illustration */}
+                  {/* 5. Description Lines or text */}
+                  {'descriptionLines' in evt && evt.descriptionLines && evt.descriptionLines.length > 0 && (
+                    <div className="mt-1.5 space-y-0.5">
+                      {evt.descriptionLines.map((line, lIdx) => (
+                        <p key={lIdx} className="font-description text-xs text-[#6e3745] font-medium leading-relaxed">
+                          {line}
+                        </p>
+                      ))}
+                    </div>
+                  )}
+                  {'description' in evt && evt.description && (
+                    <p className="font-description text-xs text-[#6e3745] max-w-[320px] mx-auto mt-2 leading-relaxed">
+                      {evt.description}
+                    </p>
+                  )}
+
+                  {/* 6. Location Line */}
+                  <div className="flex items-center justify-center gap-1.5 text-[11px] font-description text-[#7d3d4b] mt-2.5">
+                    <MapPin className="w-3 h-3 text-[#A24F61] shrink-0" />
+                    <span className="font-semibold">{evt.location}</span>
+                  </div>
+
+                  {/* 7. UNDERNEATH: Royal Couple Mandap Illustration */}
                   <div className="mt-4 rounded-2xl overflow-hidden h-[320px] sm:h-[350px] relative shadow-lg border border-[#eed5db] bg-[#fbf5f2] group max-w-[360px] mx-auto">
                     <img
                       src={evt.imageUrl}
