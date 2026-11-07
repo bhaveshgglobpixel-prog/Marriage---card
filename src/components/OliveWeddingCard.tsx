@@ -56,19 +56,20 @@ export const OliveWeddingCard: React.FC<OliveWeddingCardProps> = ({
       id: 'mandap',
       title: 'Mandap Ceremony',
       date: '15 December, Tuesday',
-      dayTime: '1:00 AM',
+      dayTime: '1:00 PM',
       location: 'Bapa Sitaram Palace Party Plot',
-      description: 'Sacred marriage rituals, exchange of vows, and auspicious blessings as we tie the knot.',
+      description: 'Join us for sacred rituals, heartfelt vows, and divine blessings as we begin our journey together.',
       imageUrl: '/assets/aistudio/Image__4__2_ad57dbae.jpg',
       badge: 'Mandap Ceremony',
     },
     {
       id: 'garba',
       title: 'Raas Garba',
+      subtitle: 'A Special Dinner Invitation',
       date: '15 December, Tuesday',
-      dayTime: '8:00 AM',
-      location: 'Bapa Sitaram Palace Party Plot',
-      description: 'Joyous music, rhythmic traditional dancing, and vibrant celebrations under the stars.',
+      dayTime: '6:00 PM Onwards',
+      location: 'Together as a Couple',
+      description: 'A Heartfelt Invitation to Join Us.',
       imageUrl: '/assets/aistudio/Image__8__1_49dbf85c.jpg',
       badge: 'Raas Garba',
     },
@@ -76,7 +77,7 @@ export const OliveWeddingCard: React.FC<OliveWeddingCardProps> = ({
       id: 'wedding',
       title: 'Wedding',
       date: '16 December, Wednesday',
-      dayTime: '10:00 AM',
+      dayTime: '10:00 PM',
       location: 'Bapa Sitaram Palace Party Plot',
       description: 'Sacred pheras around the holy agni, auspicious Hast Melap, and eternal vows of togetherness.',
       imageUrl: '/assets/aistudio/Image__4__1_81978a19.jpg',
@@ -103,10 +104,13 @@ export const OliveWeddingCard: React.FC<OliveWeddingCardProps> = ({
             </h1>
             <div className="mt-1 text-center font-description anim-fast-text" style={{ animationDelay: '200ms' }}>
               <span className="text-xs sm:text-[13px] text-[#7d3d4b] italic block drop-shadow-[0_1px_1px_rgba(255,255,255,0.9)]">
-                Beloved daughter of
+                The Beloved Daughter of
               </span>
               <span className="text-xs sm:text-[13px] font-bold text-[#2d1219] block mt-0.5 drop-shadow-[0_1px_1px_rgba(255,255,255,0.9)]">
-                Mrs. Anusuyaben &amp; Mr. Dineshbhai Bavchandbhai Savsaviya
+                Mrs. Ansuyaben &amp; Mr. Dineshbhai Bavchandbhai Savsaviya
+              </span>
+              <span className="text-[11px] sm:text-xs text-[#6e3745] font-semibold italic block mt-0.5 drop-shadow-[0_1px_1px_rgba(255,255,255,0.9)]">
+                Originally from Punjapader | Currently Residing in Surat
               </span>
             </div>
           </div>
@@ -125,19 +129,19 @@ export const OliveWeddingCard: React.FC<OliveWeddingCardProps> = ({
             </h1>
             <div className="mt-1 text-center font-description anim-fast-text" style={{ animationDelay: '520ms' }}>
               <span className="text-xs sm:text-[13px] text-[#7d3d4b] italic block drop-shadow-[0_1px_1px_rgba(255,255,255,0.9)]">
-                Beloved son of
+                The Beloved Son of
               </span>
               <span className="text-xs sm:text-[13px] font-bold text-[#2d1219] block mt-0.5 drop-shadow-[0_1px_1px_rgba(255,255,255,0.9)]">
-                Mrs. Manishaben &amp; Mr. Mansukhbhai Kotadia
+                Mrs. Manishaben &amp; Mr. Mansukhbhai maganbhai Kotadia
               </span>
               <span className="text-[11px] sm:text-xs text-[#6e3745] font-semibold italic block mt-0.5 drop-shadow-[0_1px_1px_rgba(255,255,255,0.9)]">
-                Tori Rampur (Currently residing in Surat)
+                Originally from Tori(Rampur) | Currently Residing in Surat
               </span>
             </div>
           </div>
 
-          <p className="font-description text-xs sm:text-sm text-[#5c2432] font-medium max-w-[300px] mx-auto mt-3 leading-relaxed drop-shadow-[0_1px_1px_rgba(255,255,255,0.9)] anim-fast-text" style={{ animationDelay: '640ms' }}>
-            Cordially invite you to celebrate their wedding union with love &amp; blessings
+          <p className="font-description text-xs sm:text-sm text-[#5c2432] font-medium max-w-[320px] mx-auto mt-3 leading-relaxed drop-shadow-[0_1px_1px_rgba(255,255,255,0.9)] anim-fast-text" style={{ animationDelay: '640ms' }}>
+            With the blessings of their families, they joyfully invite you to celebrate their beautiful union.
           </p>
         </div>
 
@@ -154,8 +158,8 @@ export const OliveWeddingCard: React.FC<OliveWeddingCardProps> = ({
       {/* ================= SECTION 2: CELEBRATION BANNER & COUNTDOWN (PRIMARY ROYAL ROSE PATTI) ================= */}
       <ScrollReveal direction="up">
         <div className="bg-[#A24F61] text-white py-8 px-6 text-center shadow-inner border-y border-[#8e3f51]">
-          <p className="font-description text-xs text-[#fae8ec] max-w-[310px] mx-auto leading-relaxed">
-            With the divine blessings of Almighty and our beloved parents &amp; elders, we joyfully invite you to the auspicious wedding celebration of
+          <p className="font-description text-xs text-[#fae8ec] max-w-[320px] mx-auto leading-relaxed">
+            With the divine blessings of the Almighty and the blessings of our beloved parents and elders, we joyfully invite you to celebrate our wedding.
           </p>
 
           {/* Main Heading Couple Names in simple, readable cursive (karshu) */}
@@ -243,6 +247,15 @@ export const OliveWeddingCard: React.FC<OliveWeddingCardProps> = ({
                     {evt.title}
                   </h4>
 
+                  {/* Subtitle when present (e.g. A Special Dinner Invitation) */}
+                  {'subtitle' in evt && evt.subtitle && (
+                    <div className="mt-1">
+                      <span className="font-primary text-[11px] sm:text-xs font-bold text-[#b57d2a] tracking-[0.18em] uppercase">
+                        {evt.subtitle}
+                      </span>
+                    </div>
+                  )}
+
                   {/* DATE & TIME (Under title as in reference image) */}
                   <div className="mt-2.5 flex flex-col items-center justify-center gap-1">
                     <span className="font-primary text-[11px] sm:text-xs font-bold tracking-[0.24em] uppercase text-[#2d1219]">
@@ -291,8 +304,8 @@ export const OliveWeddingCard: React.FC<OliveWeddingCardProps> = ({
       <ScrollReveal direction="right">
         <IndianVenueMap
           venueName="Bapa Sitaram Palace Party Plot"
-          address="Bapa Sitaram Chowk, New Varachha"
-          city="Surat, Gujarat 395006, India"
+          address="Anthem Circle, Canal Road, opp. Annapurna Hotel"
+          city="Surat, Gujarat 395013"
           mapsUrl="https://www.google.com/maps/place/Bapa+Sitaram+Palace+Party+Plot/@21.2139181,72.9186267,17z/data=!3m1!4b1!4m6!3m5!1s0x3be04569fa306223:0x11723511c5607f10!8m2!3d21.2139181!4d72.9186267!16s%2Fg%2F11ylpm5z8v?entry=ttu&g_ep=EgoyMDI2MTAwNy4wIKXMDSoASAFQAw%3D%3D"
         />
       </ScrollReveal>
@@ -306,9 +319,6 @@ export const OliveWeddingCard: React.FC<OliveWeddingCardProps> = ({
           <h3 className="font-script text-5xl sm:text-6xl text-[#A24F61] font-normal my-2 tracking-wide">
             Thank You!
           </h3>
-          <p className="font-primary text-xs sm:text-sm font-semibold tracking-wider text-[#A24F61] uppercase">
-            Janki &amp; Divyesh
-          </p>
 
           {/* Full-Size Couple Photo in Elegant Royal Arch Shape */}
           <div className="mt-7 mx-auto max-w-[340px] relative group">

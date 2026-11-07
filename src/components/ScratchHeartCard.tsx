@@ -67,41 +67,27 @@ export const ScratchHeartCard: React.FC<ScratchHeartCardProps> = ({
     }
   }, []);
 
-  // Auto-reveal when card scrolls to top / enters viewport if user does not scratch
+  // Auto-reveal ONLY when the card actually reaches the top of the screen (rect.top <= 70)
+  // Until it reaches the top, the user can manually scratch it freely with their finger
   useEffect(() => {
     if (isRevealed) return;
     const element = containerRef.current;
     if (!element) return;
 
-    let autoTimer: ReturnType<typeof setTimeout> | null = null;
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting && !isRevealedRef.current && !triggeredRef.current) {
-            // If user scrolled to the scratch card and hasn't scratched it, auto reveal after 800ms
-            if (!autoTimer) {
-              autoTimer = setTimeout(() => {
-                if (!isRevealedRef.current && !triggeredRef.current) {
-                  triggeredRef.current = true;
-                  triggerCelebration();
-                }
-              }, 800);
-            }
-          }
-        });
-      },
-      {
-        threshold: 0.35,
-        rootMargin: '0px 0px -40px 0px',
+    const checkTopAndReveal = () => {
+      if (isRevealedRef.current || triggeredRef.current) return;
+      const rect = element.getBoundingClientRect();
+      // Only when the card scrolls all the way up to the top of the viewport
+      if (rect.top <= 70 && rect.bottom >= 80) {
+        triggeredRef.current = true;
+        triggerCelebration();
       }
-    );
+    };
 
-    observer.observe(element);
+    window.addEventListener('scroll', checkTopAndReveal, { passive: true });
 
     return () => {
-      observer.disconnect();
-      if (autoTimer) clearTimeout(autoTimer);
+      window.removeEventListener('scroll', checkTopAndReveal);
     };
   }, [isRevealed, triggerCelebration]);
 
@@ -248,13 +234,11 @@ export const ScratchHeartCard: React.FC<ScratchHeartCardProps> = ({
               DECEMBER
             </span>
 
-            {/* Year with Gold Hairline Flares */}
-            <div className="flex items-center justify-center gap-2 mt-1">
-              <span className="w-3.5 h-[1px] bg-[#c48e35]/70" />
+            {/* Auspicious Year: Only 2026 without side dashes */}
+            <div className="flex items-center justify-center mt-1">
               <span className="font-cinzel text-xs sm:text-[13px] font-bold text-[#b57d2a] tracking-[0.28em]">
                 2026
               </span>
-              <span className="w-3.5 h-[1px] bg-[#c48e35]/70" />
             </div>
           </div>
         </div>

@@ -68,10 +68,10 @@ export const initialWeddingData: WeddingData = {
   venueSectionTitle: 'Venue & Location',
   venue: {
     name: 'Bapa Sitaram Palace Party Plot',
-    address: 'Bapa Sitaram Chowk, New Varachha',
+    address: 'Anthem Circle, Canal Road, opp. Annapurna Hotel',
     city: 'Surat',
     state: 'Gujarat',
-    pincode: '395006',
+    pincode: '395013',
     country: 'India',
     imageUrl: '/assets/aistudio/Image__8__ff8d6062.jfif',
     googleMapsUrl:
