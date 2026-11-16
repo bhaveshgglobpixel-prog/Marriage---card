@@ -59,7 +59,7 @@ export const OliveWeddingCard: React.FC<OliveWeddingCardProps> = ({
       dayTime: '1:00 PM',
       location: 'Bapa Sitaram Palace Party Plot',
       description: 'Join us for sacred rituals, heartfelt vows, and divine blessings as we begin our journey together.',
-      imageUrl: '/assets/aistudio/Image__4__2_ad57dbae.jpg',
+      imageUrl: '/assets/aistudio/Festive_Indian_Wedding_Portrait_1c9eace7.png',
       badge: 'Mandap Ceremony',
     },
     {
@@ -73,7 +73,7 @@ export const OliveWeddingCard: React.FC<OliveWeddingCardProps> = ({
         'A Heartfelt Invitation to Join Us.',
       ],
       location: 'Bapa Sitaram Palace Party Plot',
-      imageUrl: '/assets/aistudio/Image__8__1_49dbf85c.jpg',
+      imageUrl: '/assets/aistudio/Romantic_Wedding_Arch_Dance__1__ea61f720.png',
       badge: 'Raas Garba',
     },
     {
@@ -87,7 +87,7 @@ export const OliveWeddingCard: React.FC<OliveWeddingCardProps> = ({
         'A Heartfelt Invitation to Join Us.',
       ],
       location: 'Bapa Sitaram Palace Party Plot',
-      imageUrl: '/assets/aistudio/Image__4__1_81978a19.jpg',
+      imageUrl: '/assets/aistudio/image__4__55b04d34.png',
       badge: 'Shubh Vivah',
     },
   ];
@@ -284,7 +284,14 @@ export const OliveWeddingCard: React.FC<OliveWeddingCardProps> = ({
                   {'descriptionLines' in evt && evt.descriptionLines && evt.descriptionLines.length > 0 && (
                     <div className="mt-1.5 space-y-0.5">
                       {evt.descriptionLines.map((line, lIdx) => (
-                        <p key={lIdx} className="font-description text-xs text-[#6e3745] font-medium leading-relaxed">
+                        <p
+                          key={lIdx}
+                          className={`font-description text-xs leading-relaxed ${
+                            line === 'Together as a Couple'
+                              ? 'font-bold text-[#4a1b27] underline underline-offset-4 decoration-[#A24F61]/70'
+                              : 'font-medium text-[#6e3745]'
+                          }`}
+                        >
                           {line}
                         </p>
                       ))}
@@ -351,9 +358,9 @@ export const OliveWeddingCard: React.FC<OliveWeddingCardProps> = ({
             {/* Arched Photo Frame Container */}
             <div className="relative rounded-t-[140px] rounded-b-3xl overflow-hidden shadow-2xl border-4 border-white aspect-[3/4] bg-[#faeff2]">
               <img
-                src="/assets/aistudio/Image__8__ff8d6062.jfif"
+                src="/assets/aistudio/IMG_7199.JPG_6de4293c.jpeg"
                 alt="Janki & Divyesh - Forever & Always"
-                className="w-full h-full object-cover object-[center_12%] transition-transform duration-700 group-hover:scale-105"
+                className="w-full h-full object-cover object-[center_25%] transition-transform duration-700 group-hover:scale-105"
               />
 
               {/* Bottom Dark Vignette with Gold/Rose Overlay */}
