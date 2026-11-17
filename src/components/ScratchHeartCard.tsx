@@ -8,23 +8,20 @@ interface ScratchHeartCardProps {
   subText?: string;
 }
 
-export const ScratchHeartCard: React.FC<ScratchHeartCardProps> = ({
-  weddingDateText = '16 December 2026',
-  dayText = 'Wednesday',
-  subText = 'Shubh Vivah',
-}) => {
+export const ScratchHeartCard: React.FC<ScratchHeartCardProps> = () => {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
   const containerRef = useRef<HTMLDivElement | null>(null);
   const cardWrapperRef = useRef<HTMLDivElement | null>(null);
   const [isRevealed, setIsRevealed] = useState(false);
-  const [isScratching, setIsScratching] = useState(false);
-  const [isAutoScratching, setIsAutoScratching] = useState(false);
   const [hasStartedScratching, setHasStartedScratching] = useState(false);
-  const [scratchedPct, setScratchedPct] = useState(0);
   const isRevealedRef = useRef(false);
+  const isScratchingRef = useRef(false);
   const hasStartedScratchingRef = useRef(false);
   const triggeredRef = useRef(false);
-  const animFrameRef = useRef<number | null>(null);
+  const lastPointRef = useRef<{ x: number; y: number } | null>(null);
+  const totalFoilSamplesRef = useRef<number>(0);
+  const distanceSinceCheckRef = useRef<number>(0);
+  const totalDragDistanceRef = useRef<number>(0);
 
   // Standard classic heart dimensions
   const WIDTH = 260;
@@ -34,13 +31,8 @@ export const ScratchHeartCard: React.FC<ScratchHeartCardProps> = ({
   const triggerCelebration = useCallback(() => {
     if (isRevealedRef.current) return;
     isRevealedRef.current = true;
+    isScratchingRef.current = false;
     setIsRevealed(true);
-    setIsAutoScratching(false);
-
-    if (animFrameRef.current) {
-      cancelAnimationFrame(animFrameRef.current);
-      animFrameRef.current = null;
-    }
 
     const canvas = canvasRef.current;
     if (canvas) {
@@ -68,7 +60,7 @@ export const ScratchHeartCard: React.FC<ScratchHeartCardProps> = ({
   }, []);
 
   // Auto-reveal ONLY when the card actually reaches the top of the screen (rect.top <= 70)
-  // Until it reaches the top, the user can manually scratch it freely with their finger
+  // Until it reaches the top, the user can manually scratch it freely with their finger/hand
   useEffect(() => {
     if (isRevealed) return;
     const element = containerRef.current;
@@ -98,14 +90,12 @@ export const ScratchHeartCard: React.FC<ScratchHeartCardProps> = ({
 
     canvas.width = WIDTH;
     canvas.height = HEIGHT;
-    const ctx = canvas.getContext('2d');
+    const ctx = canvas.getContext('2d', { willReadFrequently: true });
     if (!ctx) return;
 
     // Heart Path
     const drawHeartPath = () => {
       ctx.beginPath();
-      // SVG path coordinates scaled to 260x240:
-      // M130 76.8 C130 19.2 15.6 19.2 15.6 76.8 C15.6 139.2 83.2 196.8 130 235.2 C176.8 196.8 244.4 139.2 244.4 76.8 C244.4 19.2 130 19.2 130 76.8 Z
       ctx.moveTo(130, 76.8);
       ctx.bezierCurveTo(130, 19.2, 15.6, 19.2, 15.6, 76.8);
       ctx.bezierCurveTo(15.6, 139.2, 83.2, 196.8, 130, 235.2);
@@ -134,57 +124,146 @@ export const ScratchHeartCard: React.FC<ScratchHeartCardProps> = ({
     ctx.textAlign = 'center';
     ctx.fillText('✨ SCRATCH HERE ✨', WIDTH / 2, HEIGHT / 2 + 10);
     ctx.font = 'italic 11px "Cormorant Garamond", serif';
-    ctx.fillText('Tap or rub to reveal the date', WIDTH / 2, HEIGHT / 2 + 28);
+    ctx.fillText('Rub gently to reveal the date', WIDTH / 2, HEIGHT / 2 + 28);
 
     ctx.restore();
+
+    // Measure baseline non-transparent pixels inside the heart for accurate scratch detection
+    try {
+      const data = ctx.getImageData(0, 0, WIDTH, HEIGHT).data;
+      let count = 0;
+      for (let y = 0; y < HEIGHT; y += 4) {
+        for (let x = 0; x < WIDTH; x += 4) {
+          if (data[(y * WIDTH + x) * 4 + 3] > 20) {
+            count++;
+          }
+        }
+      }
+      totalFoilSamplesRef.current = count;
+    } catch {
+      totalFoilSamplesRef.current = 0;
+    }
   }, []);
 
-  // Scratch handler
-  const scratch = (clientX: number, clientY: number) => {
-    if (isRevealedRef.current) return;
+  const checkScratchedCoverage = useCallback(() => {
+    if (isRevealedRef.current || triggeredRef.current) return;
     const canvas = canvasRef.current;
     if (!canvas) return;
-
-    const rect = canvas.getBoundingClientRect();
-    const x = clientX - rect.left;
-    const y = clientY - rect.top;
-
-    const ctx = canvas.getContext('2d');
+    const ctx = canvas.getContext('2d', { willReadFrequently: true });
     if (!ctx) return;
 
+    const total = totalFoilSamplesRef.current;
+    if (total > 0) {
+      try {
+        const data = ctx.getImageData(0, 0, WIDTH, HEIGHT).data;
+        let remaining = 0;
+        for (let y = 0; y < HEIGHT; y += 4) {
+          for (let x = 0; x < WIDTH; x += 4) {
+            if (data[(y * WIDTH + x) * 4 + 3] > 20) {
+              remaining++;
+            }
+          }
+        }
+        const clearedRatio = 1 - remaining / total;
+        if (clearedRatio >= 0.42) {
+          triggeredRef.current = true;
+          triggerCelebration();
+        }
+        return;
+      } catch {
+        // fallback below
+      }
+    }
+
+    if (totalDragDistanceRef.current >= 420) {
+      triggeredRef.current = true;
+      triggerCelebration();
+    }
+  }, [triggerCelebration]);
+
+  const getCanvasPoint = (clientX: number, clientY: number) => {
+    const canvas = canvasRef.current;
+    if (!canvas) return null;
+    const rect = canvas.getBoundingClientRect();
+    if (!rect.width || !rect.height) return null;
+    return {
+      x: ((clientX - rect.left) * canvas.width) / rect.width,
+      y: ((clientY - rect.top) * canvas.height) / rect.height,
+    };
+  };
+
+  const scratchMove = (clientX: number, clientY: number) => {
+    if (isRevealedRef.current || !isScratchingRef.current) return;
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+    const ctx = canvas.getContext('2d', { willReadFrequently: true });
+    if (!ctx) return;
+
+    const point = getCanvasPoint(clientX, clientY);
+    if (!point) return;
+
+    const prev = lastPointRef.current ?? point;
+    const dx = point.x - prev.x;
+    const dy = point.y - prev.y;
+    const dist = Math.hypot(dx, dy);
+
+    // Require actual hand movement on canvas
+    if (dist < 1.5) return;
+
+    ctx.save();
     ctx.globalCompositeOperation = 'destination-out';
+    ctx.lineCap = 'round';
+    ctx.lineJoin = 'round';
+    ctx.lineWidth = 38;
     ctx.beginPath();
-    ctx.arc(x, y, 24, 0, Math.PI * 2);
-    ctx.fill();
+    ctx.moveTo(prev.x, prev.y);
+    ctx.lineTo(point.x, point.y);
+    ctx.stroke();
+    ctx.restore();
+
+    lastPointRef.current = point;
+    distanceSinceCheckRef.current += dist;
+    totalDragDistanceRef.current += dist;
 
     if (!hasStartedScratchingRef.current) {
       hasStartedScratchingRef.current = true;
       setHasStartedScratching(true);
     }
 
-    setScratchedPct((prev) => {
-      const next = prev + 12;
-      if (next >= 40 && !triggeredRef.current) {
-        triggeredRef.current = true;
-        triggerCelebration();
-      }
-      return next;
-    });
-  };
-
-  const handleMouseDown = () => setIsScratching(true);
-  const handleMouseUp = () => setIsScratching(false);
-  const handleMouseMove = (e: React.MouseEvent) => {
-    if (!isScratching) return;
-    scratch(e.clientX, e.clientY);
-  };
-
-  const handleTouchStart = () => setIsScratching(true);
-  const handleTouchEnd = () => setIsScratching(false);
-  const handleTouchMove = (e: React.TouchEvent) => {
-    if (e.touches[0]) {
-      scratch(e.touches[0].clientX, e.touches[0].clientY);
+    if (distanceSinceCheckRef.current >= 28) {
+      distanceSinceCheckRef.current = 0;
+      checkScratchedCoverage();
     }
+  };
+
+  const handlePointerDown = (e: React.PointerEvent<HTMLCanvasElement>) => {
+    if (isRevealedRef.current) return;
+    try {
+      e.currentTarget.setPointerCapture(e.pointerId);
+    } catch {
+      // safe fallback
+    }
+    isScratchingRef.current = true;
+    lastPointRef.current = getCanvasPoint(e.clientX, e.clientY);
+  };
+
+  const handlePointerMove = (e: React.PointerEvent<HTMLCanvasElement>) => {
+    if (!isScratchingRef.current || isRevealedRef.current) return;
+    scratchMove(e.clientX, e.clientY);
+  };
+
+  const handlePointerUpOrCancel = (e: React.PointerEvent<HTMLCanvasElement>) => {
+    if (!isScratchingRef.current) return;
+    isScratchingRef.current = false;
+    lastPointRef.current = null;
+    try {
+      if (e.currentTarget.hasPointerCapture(e.pointerId)) {
+        e.currentTarget.releasePointerCapture(e.pointerId);
+      }
+    } catch {
+      // safe fallback
+    }
+    checkScratchedCoverage();
   };
 
   return (
@@ -243,20 +322,17 @@ export const ScratchHeartCard: React.FC<ScratchHeartCardProps> = ({
           </div>
         </div>
 
-        {/* TOP LAYER: Real Gold Metallic Foil Scratch Canvas */}
+        {/* TOP LAYER: Real Gold Metallic Foil Scratch Canvas - requires hand/finger movement */}
         <canvas
           ref={canvasRef}
-          onClick={triggerCelebration}
-          onMouseDown={handleMouseDown}
-          onMouseMove={handleMouseMove}
-          onMouseUp={handleMouseUp}
-          onTouchStart={handleTouchStart}
-          onTouchMove={handleTouchMove}
-          onTouchEnd={handleTouchEnd}
+          onPointerDown={handlePointerDown}
+          onPointerMove={handlePointerMove}
+          onPointerUp={handlePointerUpOrCancel}
+          onPointerCancel={handlePointerUpOrCancel}
           className={`absolute inset-0 w-[260px] h-[240px] cursor-grab active:cursor-grabbing transition-opacity duration-700 z-10 ${
             isRevealed ? 'opacity-0 pointer-events-none' : 'opacity-100'
           }`}
-          style={{ touchAction: 'pan-y' }}
+          style={{ touchAction: 'none' }}
         />
 
         {/* PROPER CRISP DIE-CUT METALLIC BORDER FRAMING THE HEART PERMANENTLY */}
@@ -298,10 +374,10 @@ export const ScratchHeartCard: React.FC<ScratchHeartCardProps> = ({
         </svg>
 
         {/* Gentle Pulsing Hand Touch Hint */}
-        {!hasStartedScratching && !isRevealed && !isAutoScratching && (
+        {!hasStartedScratching && !isRevealed && (
           <div className="absolute -bottom-3 z-30 pointer-events-none animate-bounce flex items-center gap-1.5 py-1 px-3 rounded-full bg-[#A24F61] text-white text-[10px] font-primary font-bold shadow-lg border border-white">
             <Hand className="w-3 h-3 text-[#fde68a]" />
-            <span>Rub or tap to scratch &amp; reveal</span>
+            <span>Rub with hand to scratch &amp; reveal</span>
           </div>
         )}
       </div>

@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { DirectVideoIntro } from './components/DirectVideoIntro';
 import { OliveWeddingCard } from './components/OliveWeddingCard';
 import { OliveRsvpModal } from './components/OliveRsvpModal';
@@ -18,6 +18,12 @@ import { weddingAudio } from './utils/weddingAudio';
 export default function App() {
   // Video plays directly on load without requiring any prior click
   const [isPlayingIntro, setIsPlayingIntro] = useState(true);
+
+  const handleIntroComplete = useCallback(() => {
+    window.scrollTo({ top: 0, behavior: 'auto' });
+    setIsPlayingIntro(false);
+    weddingAudio.play();
+  }, []);
 
   // Background audio initiates gracefully on user interaction
   useEffect(() => {
@@ -89,12 +95,7 @@ export default function App() {
     <div className="min-h-screen bg-[#EFE6DD] text-[#2d161d] relative selection:bg-[#A24F61]/25 selection:text-[#5c1c2b] flex flex-col items-center">
       {/* 1. DIRECT VIDEO INTRO ON LOAD (Plays envelope opening video directly) */}
       {isPlayingIntro && (
-        <DirectVideoIntro
-          onComplete={() => {
-            setIsPlayingIntro(false);
-            weddingAudio.play();
-          }}
-        />
+        <DirectVideoIntro onComplete={handleIntroComplete} />
       )}
 
       {/* 2. AMBIENT FALLING ROSE PETALS ANIMATION */}
@@ -114,6 +115,7 @@ export default function App() {
             type="button"
             onClick={() => {
               weddingAudio.pause();
+              window.scrollTo({ top: 0, behavior: 'auto' });
               setIsPlayingIntro(true);
             }}
             className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-[#A24F61] hover:bg-[#8e3f51] text-white text-xs font-primary font-bold border border-[#c4687d] transition-all shadow-sm active:scale-95 cursor-pointer"

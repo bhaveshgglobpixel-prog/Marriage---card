@@ -11,6 +11,8 @@ export default defineConfig({
   server: {
     port: 3000,
     host: '0.0.0.0',
+    allowedHosts: true,
+    hmr: process.env.DISABLE_HMR !== 'true',
   },
   build: {
     chunkSizeWarningLimit: 1200,
