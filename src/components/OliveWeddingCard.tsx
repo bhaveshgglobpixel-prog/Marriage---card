@@ -154,9 +154,12 @@ export const OliveWeddingCard: React.FC<OliveWeddingCardProps> = ({
 
         {/* Date Plaque Ribbon shifted higher up over garden with pop entrance */}
         <div className="relative z-10 pb-36 sm:pb-48 -mt-4 anim-fast-pop" style={{ animationDelay: '760ms' }}>
-          <div className="inline-block py-2.5 px-6 rounded-full bg-[#A24F61] text-white shadow-xl border border-white/25">
-            <span className="font-primary text-xs sm:text-sm tracking-[0.22em] text-[#fae8ec] font-bold">
+          <div className="inline-flex flex-col items-center py-2.5 px-7 rounded-2xl bg-[#A24F61] text-white shadow-xl border border-white/25">
+            <span className="font-primary text-xs sm:text-sm tracking-[0.22em] text-[#fae8ec] font-bold uppercase">
               16 DECEMBER 2026
+            </span>
+            <span className="font-primary text-[10px] sm:text-[11px] tracking-[0.22em] text-[#fae8ec] font-bold uppercase mt-1">
+              MARRIAGE CELEBRATION
             </span>
           </div>
         </div>
