@@ -1,6 +1,6 @@
 import React, { useRef, useEffect, useState, useCallback } from 'react';
 import confetti from 'canvas-confetti';
-import { Sparkles, Heart, Hand } from 'lucide-react';
+import { Heart, Hand } from 'lucide-react';
 
 interface ScratchHeartCardProps {
   weddingDateText?: string;
@@ -382,14 +382,9 @@ export const ScratchHeartCard: React.FC<ScratchHeartCardProps> = () => {
         )}
       </div>
 
-      {/* Action / Reveal status */}
-      <div className="mt-5">
-        {isRevealed ? (
-          <div className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-[#A24F61] text-white text-xs font-primary font-bold shadow-md animate-fadeIn">
-            <Sparkles className="w-3.5 h-3.5 text-[#fde68a]" />
-            <span>Date Revealed: 16 December 2026!</span>
-          </div>
-        ) : (
+      {/* Direct reveal action before scratch completion */}
+      {!isRevealed && (
+        <div className="mt-5">
           <button
             type="button"
             onClick={triggerCelebration}
@@ -397,8 +392,8 @@ export const ScratchHeartCard: React.FC<ScratchHeartCardProps> = () => {
           >
             Reveal date directly
           </button>
-        )}
-      </div>
+        </div>
+      )}
     </div>
   );
 };
