@@ -154,18 +154,26 @@ export const OliveWeddingCard: React.FC<OliveWeddingCardProps> = ({
 
         {/* Date Plaque Ribbon shifted higher up over garden with pop entrance */}
         <div className="relative z-10 pb-36 sm:pb-48 -mt-4 anim-fast-pop" style={{ animationDelay: '760ms' }}>
-          <div className="inline-flex flex-col items-center py-2.5 px-7 rounded-2xl bg-[#A24F61] text-white shadow-xl border border-white/25">
+          <div className="inline-block py-2.5 px-6 rounded-full bg-[#A24F61] text-white shadow-xl border border-white/25">
             <span className="font-primary text-xs sm:text-sm tracking-[0.22em] text-[#fae8ec] font-bold uppercase">
-              16 DECEMBER 2026
-            </span>
-            <span className="font-primary text-[10px] sm:text-[11px] tracking-[0.22em] text-[#fae8ec] font-bold uppercase mt-1">
               MARRIAGE CELEBRATION
             </span>
           </div>
         </div>
       </div>
 
-      {/* ================= SECTION 2: CELEBRATION BANNER & COUNTDOWN (PRIMARY ROYAL ROSE PATTI) ================= */}
+      {/* ================= SECTION 2: SCRATCH TO REVEAL HEART CARD (REAL METALLIC GOLD FOIL) ================= */}
+      <ScrollReveal direction="up" delay={50}>
+        <div className="px-6 py-2 bg-[#fbf8f5]">
+          <ScratchHeartCard
+            weddingDateText="16 December 2026"
+            dayText="Wednesday"
+            subText="Shubh Vivah"
+          />
+        </div>
+      </ScrollReveal>
+
+      {/* ================= SECTION 3: CELEBRATION BANNER & COUNTDOWN (PRIMARY ROYAL ROSE PATTI) ================= */}
       <ScrollReveal direction="up">
         <div className="bg-[#A24F61] text-white py-8 px-6 text-center shadow-inner border-y border-[#8e3f51]">
           <p className="font-description text-xs sm:text-[13px] text-[#fae8ec] max-w-[420px] mx-auto leading-relaxed">
@@ -216,17 +224,6 @@ export const OliveWeddingCard: React.FC<OliveWeddingCardProps> = ({
               </>
             )}
           </div>
-        </div>
-      </ScrollReveal>
-
-      {/* ================= SECTION 3: SCRATCH TO REVEAL HEART CARD (REAL METALLIC GOLD FOIL) ================= */}
-      <ScrollReveal direction="up" delay={50}>
-        <div className="px-6 py-2 bg-[#fbf8f5]">
-          <ScratchHeartCard
-            weddingDateText="16 December 2026"
-            dayText="Wednesday"
-            subText="Shubh Vivah"
-          />
         </div>
       </ScrollReveal>
 
